@@ -1,0 +1,15 @@
+name: Issue Chooser
+description: Choose an issue type to report
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # Welcome to YaqatW Support
+        
+        Please select the type of issue you'd like to report:
+        
+        - **[🐛 Bug Report](?template=bug_report.md)** - Something isn't working
+        - **[✨ Feature Request](?template=feature_request.md)** - Suggest an improvement
+        - **[📚 Documentation Feedback](?template=documentation.md)** - Docs need improvement
+        
+        Or [create a blank issue](issues/new) if none of these fit.
