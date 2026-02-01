@@ -39,7 +39,7 @@ YaqatW is a Microsoft Word add-in designed for researchers, students, and analys
 ### For Beta Testers
 
 **Step 1: Download the Manifest File**
-- Request the `manifest.xml` file from the YaqatW team
+- Request the `manifest.xml` file from the YaqaLab team
 
 **Step 2: Trust the Add-in in Word**
 
