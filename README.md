@@ -26,7 +26,7 @@ YaqatW is a Microsoft Word add-in designed for researchers, students, and analys
 
 - **Code** text excerpts with custom codes and colors
 - **Organize** codes into categories and hierarchies
-- **Analyze** relationships between codes and concepts
+- **Document** relationships between codes and concepts
 - **Annotate** documents with metadata and field notes
 - **Sync** your work across devices via cloud storage
 - **Export** your analysis to Excel for further investigation
@@ -182,9 +182,9 @@ Communication (Category)
 
 ---
 
-### 3. **Relationships** Tab - Connect Concepts
+### 3. **Relationships** Tab - Document Connections Between Concepts
 
-**What it does:** Define relationships between codes/categories to show how concepts connect (cause-effect, temporal, hierarchical, etc.).
+**What it does:** Create and document relationships between codes/categories to keep track of how concepts connect (cause-effect, temporal, hierarchical, etc.). This helps you organize your thinking and preserve connections you identify in your data.
 
 **How to use:**
 
@@ -205,8 +205,8 @@ Communication (Category)
 **Add Codes/Categories to a Relationship:**
 1. Click the relationship to expand it
 2. Right-click an Instance (numbered box)
-3. Click **Add Code/Category** to add one side of the relationship
-4. The instance shows both elements connected
+3. Click **Add Code/Category** to add categories (or codes) to each side
+4. Relationships work best with categories, but individual codes can be added too
 
 **Create Multiple Instances:**
 - Click **Add Instance** to create another pairing
@@ -216,17 +216,17 @@ Communication (Category)
 ```
 Relationship: Cause → Effect
 ├── Instance 1
-│   ├── Cause: Job Stress
-│   └── Effect: High Turnover
+│   ├── Organizational Stress (Category1)
+│   └── High Turnover (Category2)
 ├── Instance 2
-│   ├── Cause: Poor Management
-│   └── Effect: Low Morale
+│   ├── Leadership Issues (Category1)
+│   └── Team Morale (Category2)
 └── Instance 3
-    ├── Cause: Unclear Goals
-    └── Effect: Confusion
+    ├── Goal Clarity (Code1)
+    └── Performance (Category2)
 ```
 
-**Use Case:** After identifying patterns in codes, document the causal chains and connections to build theory or understand processes in your data.
+**Use Case:** As you read and code, you'll notice connections between concepts. Use this tab to document those relationships (e.g., "Job Stress → High Turnover") so you have a record of patterns you've identified.
 
 ---
 
@@ -339,11 +339,11 @@ For advanced features, configure AI provider API keys:
 3. Delete or merge redundant codes
 4. Build a category hierarchy
 
-**Phase 4: Relationship Analysis (15-30 min)**
-1. Identify patterns and connections between codes
-2. Create Relationships (cause-effect, temporal, etc.)
-3. Document causal chains and dependencies
-4. Note exceptions and outliers
+**Phase 4: Document Relationships (10-15 min)**
+1. Review your codes and identify patterns or connections
+2. Create Relationships (cause-effect, temporal, etc.) to document what you notice
+3. Link codes/categories to show how they connect
+4. Note any recurring patterns or outliers
 
 **Phase 5: Metadata & Documentation (5-10 min)**
 1. Add Metadata about the document (date, participant, location, etc.)
@@ -369,7 +369,7 @@ For advanced features, configure AI provider API keys:
 - **Backup:** Protect your work against accidental deletion or computer failure
 - **Multi-device:** Access your project on laptop, tablet, or different computer
 - **Collaboration:** (Future) Share projects with research team members
-- **Automatic:** Set to auto-sync periodically (pro version)
+- **Manual:** Click "Sync Now" anytime to upload/download your coding data
 
 ### How to Sync
 
@@ -558,14 +558,14 @@ Once in Excel, you can:
 
 ### Getting Help
 
-- **Report Issues:** Email support@yaqalab.com with:
+- **Report Issues:** Visit https://github.com/yaqalab/yaqatw-support/issues and create a new issue with:
   - Error message (from F12 console)
   - Steps to reproduce
   - Browser/Word version
   - Cloud provider (if applicable)
 
 - **Documentation:** https://github.com/yaqalab/yaqatw-support
-- **Feature Requests:** Discuss in GitHub Issues
+- **Feature Requests:** Discuss in [GitHub Issues](https://github.com/yaqalab/yaqatw-support/issues)
 
 ---
 
@@ -581,7 +581,7 @@ A: Deleting a code doesn't delete highlights (only the code definition). Highlig
 A: Currently, each person manages their own copy. Future versions will support collaborative editing. For now, merge projects manually or export to Excel to share findings.
 
 **Q: What if I lose my password?**
-A: If encryption is enabled, **encrypted data is unrecoverable**. Please store passwords securely (password manager or backup). Contact support@yaqalab.com if you've lost access.
+A: If encryption is enabled, **encrypted data is unrecoverable**. Please store passwords securely (password manager or backup). Open an issue at https://github.com/yaqalab/yaqatw-support/issues if you need help.
 
 **Q: Can I use YaqatW on Excel or PowerPoint?**
 A: YaqatW is Word-only for now. We're exploring other Office apps for future releases.
@@ -596,7 +596,7 @@ A: Yes, all work is local until you sync. If you don't sync, data stays in your 
 A: Excel export is available. JSON import/export is available via the Settings menu for advanced users/migration.
 
 **Q: How much does YaqatW cost?**
-A: YaqatW is free during beta testing. Pricing after official launch will be announced. Early adopters may get lifetime discounts.
+A: YaqatW is free to use. While we're evaluating future monetization models, all current features remain at no cost. Any future changes will be announced with plenty of notice.
 
 **Q: Is there a mobile app?**
 A: Not yet. Mobile support is planned for post-launch. For now, use Word on tablet with the full add-in.
@@ -605,6 +605,6 @@ A: Not yet. Mobile support is planned for post-launch. For now, use Word on tabl
 
 ## Thank You!
 
-Thank you for being a YaqatW beta tester! Your feedback is invaluable. Please share thoughts, issues, and feature requests at **support@yaqalab.com**.
+Thank you for being a YaqatW beta tester! Your feedback is invaluable. Please share thoughts, issues, and feature requests on [GitHub Issues](https://github.com/yaqalab/yaqatw-support/issues).
 
 Happy coding! 🎓
