@@ -79,8 +79,8 @@ Once YaqatW is published to the Microsoft Office Store, installation will be one
 When you open YaqatW for the first time, you'll see the Settings tab with required configuration:
 
 1. **Project Name**
-   - Enter a name for your research project (e.g., "Interview Study 2024")
-   - Can contain letters, numbers, and hyphens
+   - Enter a name for your research project (e.g., "interview-study-2024")
+   - Can contain letters (lowercase), numbers, and hyphens
    - **Note:** Project name is shared across all files in the same project
 
 2. **Data Password**
@@ -91,7 +91,7 @@ When you open YaqatW for the first time, you'll see the Settings tab with requir
 3. **Current File (File ID)**
    - Give this specific document a unique identifier (e.g., "interview-001")
    - Allows you to work on multiple documents within the same project
-   - Each document gets its own codes and highlights
+   - Each document gets its own codes and highlights, which will be shared with other documents.
 
 4. **User Name**
    - Enter your name (lowercase, no spaces)
@@ -111,7 +111,7 @@ When you open YaqatW for the first time, you'll see the Settings tab with requir
 
 ### 1. **Coding** Tab - Mark Up Your Text
 
-**What it does:** Create custom codes (themes, concepts) and apply them to text selections in your document.
+**What it does:** Create custom codes (concepts/tags) and apply them to text selections in your document.
 
 **How to use:**
 
@@ -572,34 +572,34 @@ Once in Excel, you can:
 ## FAQ
 
 **Q: Is my data private?**
-A: Yes. Coding data stays in your Word document and cloud account (you control). YaqatW doesn't collect or store your data. If you enable encryption, even our team cannot see your content.
+A: Yes. Your coding data stays in your Word document, in a local IndexedDB scoped to the addin inside your computer, and your chosen cloud account. YaqatW never sends your data to our servers. All processing happens locally in your browser via Office.js. If you enable encryption, sensitive data in your content is protected before being sent to the cloud and cannot be read without your password. However, always remember to keep your password safe, as encrypted data cannot be recovered if the password is lost.
 
 **Q: Can I recover a deleted code?**
-A: Deleting a code doesn't delete highlights (only the code definition). Highlights remain in the document with "Uncoded" label. You can recreate the code. The "Trash" tab shows recently deleted items.
+A: Deleting a code doesn't delete highlights (only the code definition). Highlights remain in the document but will not show in export. The "Trash" tab shows recently deleted items and you can restore deleted code. You can also "permanently delete". In that case, you will not be able to recover the code.
 
 **Q: Can I share a project with my research team?**
-A: Currently, each person manages their own copy. Future versions will support collaborative editing. For now, merge projects manually or export to Excel to share findings.
+A: Collaboration is possible if each team member works on a separate file within the same project. Do not edit the same file together. Each user should be in charge of one file to avoid conflicts or data loss. Each data insertion is auto-synced to the cloud. Before starting work, use "Sync Now" in Settings to ensure you have the latest data from the cloud. The principal investigator should share the YaqatW-DATA cloud folder with other researchers after initial creation from YaqatW. There is not need to share cloud accounts. Each user has access to all project data (codes, highlights, etc.) and can export as needed.
 
 **Q: What if I lose my password?**
-A: If encryption is enabled, **encrypted data is unrecoverable**. Please store passwords securely (password manager or backup). Open an issue at https://github.com/yaqalab/yaqatw-support/issues if you need help.
+A: If encryption is enabled, **encrypted data is unrecoverable** if you lose your password. There is no way to recover encrypted data without the password. Please store passwords securely (password manager or backup).
 
 **Q: Can I use YaqatW on Excel or PowerPoint?**
-A: YaqatW is Word-only for now. We're exploring other Office apps for future releases.
+A: YaqatW is Word-only for now. We are exploring other Office apps for future releases, but it will be just extension of feature like accessing data directly in excel for analysis, etc. 
 
 **Q: How big can my document be?**
-A: Documents up to 50 MB are supported. Very large documents (100+ MB) may experience slowdowns. If needed, split into smaller documents per project.
+A: The practical size limit depends on your computer's memory and processing power, but we recommend keeping each Word document under 50 MB for best performance. Very large documents (100+ MB) may cause Word and the add-in to slow down or become unstable, since all highlights, codes, and annotations must be processed in real time. For large projects, split your work into multiple documents, ideally, one document per interview or source. This approach keeps everything fast, reliable, and easy to manage.
 
 **Q: Does YaqatW work offline?**
-A: Yes, all work is local until you sync. If you don't sync, data stays in your document. Syncing to cloud requires internet connection.
+A: Yes, all work is local until you sync. If you do not sync, data stays in your document. Syncing to cloud requires internet connection.
 
 **Q: Can I export my data to other formats?**
-A: Excel export is available. JSON import/export is available via the Settings menu for advanced users/migration.
+A: Word, Excel, HTML, CSV, and JSON export is available. Each type of data is exported separately.
 
 **Q: How much does YaqatW cost?**
-A: YaqatW is free to use. While we're evaluating future monetization models, all current features remain at no cost. Any future changes will be announced with plenty of notice.
+A: YaqatW is free to use. While we are evaluating future monetization models to cover costs such as domain name and hosting. All current features remain at no cost. Any future changes will be announced with plenty of notice.
 
 **Q: Is there a mobile app?**
-A: Not yet. Mobile support is planned for post-launch. For now, use Word on tablet with the full add-in.
+A: No. Office Add-ins (including YaqatW) are not supported on the Word mobile app for iOS or Android, due to Microsoft platform limitations. You can use YaqatW on Word for Windows, Mac, and the web (Office 365 in a browser). On tablets, you must use the full desktop or web version of Word—add-ins do not run in the mobile app. If Microsoft adds support for add-ins on mobile in the future, we will announce it.
 
 ---
 
