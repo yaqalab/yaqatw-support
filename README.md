@@ -264,8 +264,7 @@ Relationship: Cause → Effect
 2. **Data Password** - Encrypt sensitive data in the cloud
 3. **User Name** - Your researcher identity
 4. **File ID** - This document's unique identifier
-5. **Data Language** - Language of your codes/data (default: Malagasy)
-6. **Writing Language** - Language for UI text (default: English)
+5. **User Settings** - Configure your name and preferences
 
 **Cloud Sync:**
 
@@ -304,9 +303,11 @@ For advanced features, configure AI provider API keys:
 5. Translations are now available for highlighted text
 
 **Google Translate:**
-- Free but rate-limited
-- No API key required for basic use
-- If you have your own API key, paste it in Settings
+1. Visit https://console.cloud.google.com/
+2. Create a project and enable the Cloud Translation API
+3. Create an API key
+4. Paste in YaqatW Settings → "Google Translate API Key"
+5. Note: Google Cloud Translation has usage-based pricing (may have free tier limits)
 
 **DeepSeek:**
 1. Visit https://platform.deepseek.com/api
@@ -519,9 +520,9 @@ Once in Excel, you can:
 5. Option to save translation to metadata
 
 **Supported Providers:**
-- **DeepL** (recommended; highest quality) - https://www.deepl.com/pro
-- **Google Translate** (free but limited) - https://translate.google.com
-- **Custom** (your own API) - Configure in Settings
+- **DeepL** (recommended; highest quality) - https://www.deepl.com/pro (free tier: 500K chars/month)
+- **Google Translate** (requires API key) - https://console.cloud.google.com/
+- **OpenAI** (advanced models for special use cases) - https://platform.openai.com/api-keys
 
 ### How to Get DeepL API Key
 
@@ -531,13 +532,14 @@ Once in Excel, you can:
 4. Copy your API key from the dashboard
 5. Paste in YaqatW Settings → "DeepL API Key"
 
-### Future AI Features (Coming Soon)
+### Future AI Features (In Planning)
 
-- **Auto-suggest Codes** - AI reads a highlight and suggests relevant codes
-- **Theme Discovery** - ML identifies themes you may have missed
-- **Relationship Inference** - AI suggests relationships between codes
+We are exploring advanced AI capabilities for future releases, including:
+- AI-assisted code suggestions based on text patterns
+- Export to statistical software (SPSS, R, STATA) for quantitative analysis
+- Advanced analytics dashboards
 
-**Note:** These features are in beta and will be announced when available.
+**Note:** These features are still in early planning. Timelines and availability are not confirmed. Current releases focus on core coding, categorization, and export functionality.
 
 ---
 
@@ -578,7 +580,35 @@ A: Yes. Your coding data stays in your Word document, in a local IndexedDB scope
 A: Deleting a code doesn't delete highlights (only the code definition). Highlights remain in the document but will not show in export. The "Trash" tab shows recently deleted items and you can restore deleted code. You can also "permanently delete". In that case, you will not be able to recover the code.
 
 **Q: Can I share a project with my research team?**
-A: Collaboration is possible if each team member works on a separate file within the same project. Do not edit the same file together. Each user should be in charge of one file to avoid conflicts or data loss. Each data insertion is auto-synced to the cloud. Before starting work, use "Sync Now" in Settings to ensure you have the latest data from the cloud. The principal investigator should share the YaqatW-DATA cloud folder with other researchers after initial creation from YaqatW. There is not need to share cloud accounts. Each user has access to all project data (codes, highlights, etc.) and can export as needed.
+A: Yes. Shared project access works as follows:
+
+1. **Initial Setup:**
+   - User A creates project and completes initial configuration
+   - User A connects to cloud storage and syncs
+   - User A shares the `YaqatW-DATA` cloud folder with collaborators
+
+2. **Team Member Setup:**
+   - User B configures YaqatW with the same project name
+   - User B connects to the shared cloud folder (or their own copy if preferred)
+   - User B clicks "Sync Now" to download existing codes and data
+
+3. **Multi-File Workflow:**
+   - Each team member works on separate documents (different File IDs)
+   - All documents share the same codes, categories, and relationships
+   - When you "Sync Now", all your document's highlights and data upload
+   - Other team members can see your new codes by syncing
+
+4. **Important Guidelines:**
+   - **Never edit the same file simultaneously** - always sync before starting work
+   - If two people edit the same file, the last sync wins (one version overwrites the other)
+   - Always click "Sync Now" before and after working
+   - Use different File IDs for each person (e.g., "interview-001-userid", "interview-002-userid")
+   - Consider assigning different documents to different researchers to avoid conflicts
+
+5. **No Need for Shared Accounts:**
+   - Each researcher uses their own credentials for cloud providers
+   - YaqatW only needs access to the shared `YaqatW-DATA` folder
+   - All team members retain data autonomy
 
 **Q: What if I lose my password?**
 A: If encryption is enabled, **encrypted data is unrecoverable** if you lose your password. There is no way to recover encrypted data without the password. Please store passwords securely (password manager or backup).
@@ -593,8 +623,14 @@ A: The practical size limit depends on your computer's memory and processing pow
 A: Yes, all work is local until you sync. If you do not sync, data stays in your document. Syncing to cloud requires internet connection.
 
 **Q: Can I export my data to other formats?**
-A: Word, Excel, HTML, CSV, and JSON export is available. Each type of data is exported separately.
+A: Yes. Supported export formats include:
+- **Excel (XLSX)** - Open in Excel for pivot tables and analysis
+- **CSV** - Import to R, Python, SPSS, or other tools
+- **JSON** - For custom data processing
+- **HTML** - For web viewing
+- **Word (DOCX)** - For formatted reports
 
+Each data type (codes, categories, relationships, highlights) can be exported separately.
 **Q: How much does YaqatW cost?**
 A: YaqatW is free to use. While we are evaluating future monetization models to cover costs such as domain name and hosting. All current features remain at no cost. Any future changes will be announced with plenty of notice.
 
