@@ -102,6 +102,8 @@ When you open YaqatW for the first time, you'll see the Settings tab with requir
    - Click "Connect" and follow the OAuth login prompts
    - YaqatW will create a `YaqatW-DATA` folder in your cloud account
    - This folder stores your coding data for backup and multi-device sync
+   
+![YaqatW initial settings configuration](./assets/initial-settings.png)
 
 **Once these fields are filled, all feature tabs will become available.**
 
