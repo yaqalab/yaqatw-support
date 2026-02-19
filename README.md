@@ -83,7 +83,7 @@ When you open YaqatW for the first time, you'll see the Settings tab with requir
    - Can contain letters (lowercase), numbers, and hyphens
    - **Note:** Project name is shared across all files in the same project
 
-2. **Data Password**
+2. **Data Password** (Required for sensitive data)
    - Create a strong password (8+ characters, mix of letters/numbers)
    - **Important:** Write this down securely. If lost, encrypted data cannot be recovered
    - Confirm the password in the next field
@@ -98,7 +98,7 @@ When you open YaqatW for the first time, you'll see the Settings tab with requir
    - Tracks who made each edit (future feature)
 
 5. **Cloud Sync** (Optional but Recommended)
-   - Choose a cloud provider: Google Drive, Dropbox, OneDrive, or Nextcloud
+   - Choose a cloud provider: Google Drive™, Dropbox, OneDrive, or Nextcloud
    - Click "Connect" and follow the OAuth login prompts
    - YaqatW will create a `YaqatW-DATA` folder in your cloud account
    - This folder stores your coding data for backup and multi-device sync
@@ -133,7 +133,6 @@ When you open YaqatW for the first time, you'll see the Settings tab with requir
 
 **View Your Codes:**
 - **Code List** shows all codes with color indicators
-- **Count** column shows how many times each code is used
 - **Search** box filters codes by name
 
 **Edit or Delete:**
@@ -163,7 +162,7 @@ When you open YaqatW for the first time, you'll see the Settings tab with requir
 4. Click **Add Selected**
 
 **Organize Hierarchically:**
-- Drag and drop codes within the tree to create sub-hierarchies
+- Drag and drop codes within the tree to create sub-hierarchies (To be implemented)
 - Expand/collapse categories by clicking the arrow icon
 
 **Example Structure:**
@@ -234,70 +233,117 @@ Relationship: Cause → Effect
 
 **What it does:** Manage user settings, cloud account connections, AI integrations, encryption, and document metadata.
 
-**Main Settings:**
+**Settings are organized into these sections:**
 
-1. **Project Name** - Change the project you're working on
-2. **Data Password** - Encrypt sensitive data in the cloud
-3. **User Name** - Your researcher identity
-4. **File ID** - This document's unique identifier
-5. **User Settings** - Configure your name and preferences
+**1. Project**
+- **Project Name** - Name your research project (lowercase, numbers, hyphens). Shared across all files in the same project.
 
-**Metadata:**
-- Click **Edit Metadata** to add structured notes and attributes to your document (interview date, participant ID, location, notes, etc.)
-- Add fields and values (e.g., "Interview Date": "2024-01-15", "Participant ID": "P-001")
-- Click the lock icon to encrypt sensitive metadata (requires data password)
-- Locked fields are only visible when known password is provided
+**2. Current File**
+- **File ID** - Unique identifier for this specific document (lowercase, numbers). Allows you to work on multiple documents within the same project.
 
-**Cloud Sync:**
+**3. Encryption** (appears once Project Name is set)
+- **Data Password** - Create a strong password (8+ characters, mix of types) to encrypt sensitive data
+- **Confirm Data Password** - Retype your password to confirm
+- **Encrypt Cloud Data** - Checkbox to enable encryption when syncing to cloud
+- ⚠️ **WARNING:** If you lose your password, encrypted data is **permanently unrecoverable**
+- ⚠️ **CAUTION:** Disabling encryption will NOT decrypt existing encrypted data; it will remain encrypted
 
-1. Choose a provider:
-   - **Google Drive** (most common)
-   - **Dropbox**
-   - **OneDrive** (Microsoft 365)
-   - **Nextcloud** (self-hosted)
+**4. User**
+- **User Name** - Your name (lowercase, no spaces). Used for tracking who made each edit when collaborating.
 
-2. Click **Connect** → authenticate with your cloud account
-3. Click **Sync Now** to upload/download your coding data
-4. YaqatW creates a `YaqatW-DATA` folder automatically
+**5. General**
+- **Data Language** - Language for your research data
+- **Writing Language** - Language for the interface
 
-**Encryption:**
-- If you enter a data password, enable **Encrypt Cloud Data**
-- Sensitive fields (text excerpts, translations, comments) are encrypted
-- ⚠️ **WARNING:** If you lose your password, encrypted data is **unrecoverable**
-- ⚠️ **CAUTION:** Disabling encryption cannot decrypt previously encrypted data; the data will appear as gibberish
+**6. Cloud Server**
+- **Back end** - Choose a cloud provider for optional sync:
+  - Disabled (default - local only)
+  - Google Drive™
+  - Dropbox
+  - OneDrive (Microsoft 365)
+  - Nextcloud (self-hosted)
+- **Clear Button** - Revoke YaqatW's access to your cloud account
+- **Nextcloud Settings** (if Nextcloud selected):
+  - Nextcloud URL (e.g., https://cloud.example.com)
+  - OAuth Client ID (create in Nextcloud Settings > Security)
+  - OAuth Client Secret (from your OAuth app)
+  - Nextcloud Username (auto-filled after first sync)
+- **Sync Now** - Click to manually upload/download your coding data
 
-**AI Integration (Optional):**
+**7. API Settings**
 
-For advanced features, configure AI provider API keys:
+⚠️ **SECURITY NOTE:** API keys are stored locally in IndexedDB on your computer. Only configure these providers if:
+- You use YaqatW on a personally-owned, trusted machine
+- Your computer is password-protected and locked when not in use
+- Your drive has file-level encryption enabled (BitLocker/FileVault)
 
-**OpenAI (GPT-3.5, GPT-4):**
-1. Visit https://platform.openai.com/api-keys
-2. Create an API key
-3. Paste in Settings → "OpenAI API Key"
-4. Select a model (e.g., "gpt-3.5-turbo")
-5. **Cost:** Pay-per-use; track spending in OpenAI dashboard
+For advanced AI and translation features, configure optional API keys from these providers:
+
+**Google Translate™:**
+- **Google API Key**
+  1. Visit https://console.cloud.google.com/
+  2. Create a project and enable the Cloud Translation API
+  3. Create an API key
+  4. Paste in Settings → "Google API Key"
+  5. Note: Usage-based pricing (may have free tier limits)
 
 **DeepL Translation:**
-1. Visit https://www.deepl.com/pro#developer
-2. Sign up for a free account (500K characters/month) or Pro ($4.99/month)
-3. Copy your API key
-4. Paste in Settings → "DeepL API Key"
-5. Translations are now available for highlighted text
+- **DeepL API Key**
+  1. Visit https://www.deepl.com/pro#developer
+  2. Sign up for a free account (500K characters/month) or Pro ($4.99/month)
+  3. Copy your API key
+  4. Paste in Settings → "DeepL API Key"
+  5. Translations are now available for highlighted text
+  - **Important:** Your API key is stored locally in your computer's IndexedDB database (not on YaqatW servers). Protect your machine with strong passwords and disk encryption (BitLocker on Windows, FileVault on macOS) as noted in the Encryption & Security section.
 
-**Important:** When you use DeepL, translation requests (including your API key) are temporarily transmitted through YaqatW's proxy server to process the requests. Your API key is never stored on YaqatW servers.
-
-**Google Translate:**
-1. Visit https://console.cloud.google.com/
-2. Create a project and enable the Cloud Translation API
-3. Create an API key
-4. Paste in YaqatW Settings → "Google Translate API Key"
-5. Note: Google Cloud Translation has usage-based pricing (may have free tier limits)
+**OpenAI (GPT-3.5, GPT-4):**
+- **OpenAI API Key**
+  1. Visit https://platform.openai.com/api-keys
+  2. Create an API key
+  3. Paste in Settings → "OpenAI API Key"
+- **OpenAI Model** - Select your model (e.g., "gpt-3.5-turbo"). Pricing shown per 1M tokens.
+  - Cost: Pay-per-use; track spending in OpenAI dashboard
 
 **DeepSeek:**
-1. Visit https://platform.deepseek.com/api
-2. Create an API key
-3. Paste in Settings → "DeepSeek API Key"
-4. Select model: "DeepSeek Chat" or "DeepSeek Reasoner"
+- **DeepSeek API Key**
+  1. Visit https://platform.deepseek.com/api
+  2. Create an API key
+  3. Paste in Settings → "DeepSeek API Key"
+- **DeepSeek Model** - Choose:
+  - DeepSeek Chat
+  - DeepSeek Reasoner
+
+**Advanced AI Settings** - Click to configure custom AI providers
+
+---
+
+**Metadata: Privacy-First Practices**
+
+Click **Edit Metadata** to add structured notes and attributes to your document:
+- Add fields and values (e.g., "Participant ID": "P-001")
+- Click the lock icon to encrypt sensitive fields (requires data password)
+- Locked fields are only visible when you provide the correct password
+
+**✅ Safe to store in metadata:**
+- Analysis phase or round (e.g., "Coding Round 1", "Initial Analysis")
+- General time periods (e.g., "Spring 2024", "Q1 2024") instead of exact dates
+- Geographic regions (e.g., "Region A", "Urban Area") instead of specific locations
+- Non-identifying notes (e.g., "Document contains technical discussion", "Follow-up needed")
+- Placeholder codes only (e.g., "P-001", "P-002")
+
+**❌ Do NOT store in YaqatW (even encrypted):**
+- Actual participant names or contact information
+- Real interview dates or specific locations
+- Participant real ID numbers, email addresses, or identifying codes
+- Government IDs, medical record numbers, or other direct identifiers
+
+**Keep mapping separate:** Store the key linking placeholder codes (P-001) to actual identities in a completely separate, secure file outside of YaqatW.
+
+**If you must add localized metadata:**
+- Click the lock icon to encrypt fields (requires data password)
+- Encrypted fields are only visible when you provide the correct password
+- Remember: encryption does not replace de-identification; minimize what you store
+
 
 ---
 
@@ -331,9 +377,9 @@ For advanced features, configure AI provider API keys:
 4. Note any recurring patterns or outliers
 
 **Phase 5: Metadata & Documentation (5-10 min)**
-1. Add Metadata about the document (date, participant, location, etc.)
-2. Lock sensitive fields if needed
-3. Add notes or context
+1. Add Metadata using placeholder codes (e.g., "P-001"), general time periods (e.g., "Spring 2024"), and regions (e.g., "Region A") — not exact dates, specific locations, or real names
+2. Reserve "lock" encryption only for non-identifying metadata if absolutely necessary
+3. Add analysis notes or context (e.g., "Initial coding pass", "Follow-up review")
 
 **Phase 6: Cloud Sync & Backup (2 min)**
 1. Click Settings → Sync Now
@@ -353,17 +399,24 @@ For advanced features, configure AI provider API keys:
 
 - **Backup:** Protect your work against accidental deletion or computer failure
 - **Multi-device:** Access your project on laptop, tablet, or different computer
-- **Collaboration:** (Future) Share projects with research team members
+- **Collaboration:** (Experimental) Share projects with research team members
 - **Manual:** Click "Sync Now" anytime to upload/download your coding data
 
-### How to Sync
+### How to Sync 
 
+**First Time Setup:**
 1. Go to **Settings** tab
-2. Under "Cloud Provider," select your provider (Google Drive, Dropbox, OneDrive, Nextcloud)
-3. Click **Connect** and authenticate
-4. Click **Sync Now**
-5. A `YaqatW-DATA` folder is created in your cloud account
-6. All coding data is uploaded as JSON files
+2. Under "Cloud Server" section, select **Back end**: Google Drive, Dropbox, OneDrive, or Nextcloud
+3. Click **Connect** button
+4. A browser dialog opens asking you to sign in and authorize YaqatW to access your cloud account
+5. Review permissions and click "Accept" or "Authorize"
+6. Return to YaqatW (browser closes after authorization)
+7. Click **Sync Now** to upload your coding data
+8. A `YaqatW-DATA` folder is created in your cloud account
+9. All coding data is uploaded as JSON files
+
+**Subsequent Syncs (After First Authorization):**
+- Simply click **Sync Now** whenever you want to upload/download your data (no re-authentication needed until token expires)
 
 ### What Gets Synced?
 
@@ -389,13 +442,31 @@ If you edit on two devices before syncing:
 
 ## Encryption & Security
 
+### Data Minimization First: De-identify Your Data
+
+**Best practice: Don't store sensitive identifiers in YaqatW at all.**
+
+⚠️ **Important:** Even encrypted data can pose risks if stored alongside research content. Instead:
+- **Use placeholder codes** for participants (e.g., "P-001", "P-002", "Interview-Wave1-001") in YaqatW
+- **Keep participant mapping separate**: Store the actual mapping (P-001 = John Smith) in a completely separate, secure file outside of YaqatW
+- **Minimize context data**: Use general descriptors (e.g., "Interview Round 2" instead of exact dates; "Region A" instead of specific addresses)
+- Only include metadata fields that are absolutely necessary for your analysis
+
+**Important Distinction:** When encryption is enabled, only data *sent to the cloud* is encrypted. **Data stored on your computer remains unencrypted** and accessible to anyone with access to your machine. To protect your local documents:
+- ✅ Use a strong password to lock your computer
+- ✅ Store YaqatW documents in your user's protected data folder (not shared or public folders)
+- ✅ Enable file-level encryption on sensitive folders (BitLocker on Windows, FileVault on macOS)
+- ✅ Consider restricting physical access to your computer
+- ❌ Never leave your computer unlocked or share user accounts
+
 ### When to Encrypt?
 
 **Enable encryption if your data contains:**
-- Participant names or contact info
-- Sensitive personal information (health, financial, etc.)
-- Confidential quotes or identifiers
+- Sensitive research content that requires protection (coded quotes, data excerpts)
+- Health, financial, or confidential information in the actual research text
 - Any data that must comply with GDPR, HIPAA, or institutional policy
+
+**Do NOT encrypt to justify storing identifiers.** De-identify first; encrypt only sensitive content if needed.
 
 ### How Encryption Works
 
@@ -468,7 +539,7 @@ The exported workbook includes:
 **Data Sheet:**
 | Highlight | Text | Code | Category | Participant | Date |
 |-----------|------|------|----------|-------------|------|
-| 1 | "Quote here..." | Leadership | Behaviors | P-001 | 2024-01-15 |
+| 1 | "Quote here..." | Leadership | Behaviors | P-001 | Q1 2024 |
 
 **Code Summary Sheet:**
 - Frequency of each code (count)
@@ -505,7 +576,7 @@ Once in Excel, you can:
 
 **Supported Providers:**
 - **DeepL** (recommended; highest quality) - https://www.deepl.com/pro (free tier: 500K chars/month)
-- **Google Translate** (requires API key) - https://console.cloud.google.com/
+- **Google Translate™** (requires API key) - https://console.cloud.google.com/
 - **OpenAI** (advanced models for special use cases) - https://platform.openai.com/api-keys
 
 ### How to Get DeepL API Key
@@ -551,14 +622,14 @@ We are exploring advanced AI capabilities for future releases, including:
   - Cloud provider (if applicable)
 
 - **Documentation:** https://github.com/yaqalab/yaqatw-support
-- **Feature Requests:** Discuss in [GitHub Issues](https://github.com/yaqalab/yaqatw-support/issues)
+- **Feature Requests:** Discuss in [GitHub® Issues](https://github.com/yaqalab/yaqatw-support/issues)
 
 ---
 
 ## FAQ
 
 **Q: Is my data private?**
-A: Yes. Your coding data stays in your Word document, in a local IndexedDB scoped to the addin inside your computer, and your chosen cloud account. YaqatW never sends your data to our servers. All processing happens locally in your browser via Office.js. **YaqatW does not collect usage data, personal information, or research content.** If you enable encryption, sensitive data in your content is protected before being sent to the cloud and cannot be read without your password. However, always remember to keep your password safe, as encrypted data cannot be recovered if the password is lost. For complete privacy details, see our [Privacy Policy](https://yaqatw.alefa.net/public/privacy.html).
+A: Yes. Your coding data stays in your Word document, in a local IndexedDB scoped to the addin inside your computer, and your chosen cloud account. YaqatW never sends your data to our servers. All processing happens locally in your browser via Office.js. **YaqatW does not collect usage data, personal information, or research content.** If you enable encryption, sensitive data in your content is protected before being sent to the cloud and cannot be read without your password. However, always remember to keep your password safe, as encrypted data cannot be recovered if the password is lost. **Important:** Encryption applies only to cloud sync; data on your computer remains unencrypted, so protect your local machine with strong passwords and disk encryption as discussed in the [Encryption & Security](#encryption--security) section. For complete privacy details, see our [Privacy Policy](https://yaqatw.alefa.net/public/privacy.html).
 
 **Q: Can I recover a deleted code?**
 A: Deleting a code doesn't delete highlights (only the code definition). Highlights remain in the document but will not show in export. The "Trash" tab shows recently deleted items and you can restore deleted code. You can also "permanently delete". In that case, you will not be able to recover the code.
@@ -619,7 +690,7 @@ Each data type (codes, categories, relationships, highlights) can be exported se
 A: YaqatW is completely free. There are no subscription fees, no central accounts, and no hidden costs. We believe qualitative research tools should be accessible to all researchers, regardless of institutional resources or budget. While we are exploring models to sustain the project, all current features remain free at no cost. Any significant changes to YaqatW's pricing or availability will be announced with plenty of notice.
 
 **Q: Is there a mobile app?**
-A: No. Office Add-ins (including YaqatW) are not supported on the Word mobile app for iOS or Android, due to Microsoft platform limitations. You can use YaqatW on Word for Windows, Mac, and the web (Office 365 in a browser). On tablets, you must use the full desktop or web version of Word—add-ins do not run in the mobile app. If Microsoft adds support for add-ins on mobile in the future, we will announce it.
+A: No. Office Add-ins (including YaqatW) are not supported on the Word mobile app for iOS® or Android™, due to Microsoft platform limitations. You can use YaqatW on Word for Windows, macOS, and the web (Office 365 in a browser). On tablets, you must use the full desktop or web version of Word—add-ins do not run in the mobile app. If Microsoft adds support for add-ins on mobile in the future, we will announce it.
 
 **Q: Will YaqatW be open source?**
 A: Yes. YaqatW's source code is currently proprietary as we develop and refine the tool. However, we are committed to releasing YaqatW as open-source software once the project reaches broader adoption, benefiting the research community and enabling collaborative improvements.
