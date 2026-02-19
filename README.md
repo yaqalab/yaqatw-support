@@ -272,10 +272,11 @@ Relationship: Cause → Effect
 
 **7. API Settings**
 
-⚠️ **SECURITY NOTE:** API keys are stored locally in IndexedDB on your computer. Only configure these providers if:
+⚠️ **SECURITY NOTE:** API keys are stored locally in IndexedDB within the YaqatW add-in on your computer. Only configure these providers if:
 - You use YaqatW on a personally-owned, trusted machine
 - Your computer is password-protected and locked when not in use
 - Your drive has file-level encryption enabled (BitLocker/FileVault)
+- Others don't have access to open the Word document or the plugin on your machine
 
 For advanced AI and translation features, configure optional API keys from these providers:
 
@@ -294,7 +295,7 @@ For advanced AI and translation features, configure optional API keys from these
   3. Copy your API key
   4. Paste in Settings → "DeepL API Key"
   5. Translations are now available for highlighted text
-  - **Important:** Your API key is stored locally in your computer's IndexedDB database (not on YaqatW servers). Protect your machine with strong passwords and disk encryption (BitLocker on Windows, FileVault on macOS) as noted in the Encryption & Security section.
+  - **How Storage Works:** Your API key is stored in IndexedDB — a database that exists within the YaqatW add-in on your computer. It's not sent to YaqatW servers, but it is accessible to anyone who can access the Word document or has the plugin open on your machine. To keep it secure, protect your machine with strong passwords and disk encryption (BitLocker on Windows, FileVault on macOS) as noted in the Encryption & Security section.
 
 **OpenAI (GPT-3.5, GPT-4):**
 - **OpenAI API Key**
@@ -434,9 +435,11 @@ If you edit on two devices before syncing:
 
 ### Offline Work
 
-- Work offline without syncing; all data stored locally
-- Next time you sync, changes upload automatically
-- **Caution:** If you lose your document without syncing, all work is lost
+- **Trade-off: Backup vs. Accessibility**
+  - If you don't use cloud sync, your work stays only on this computer — no backup to cloud, no access from other devices
+  - If your Word document is deleted accidentally or device fails, all your work is lost unless you manually backup the file
+  - Next time you sync (if you enable it later), changes would upload automatically, but only from when you start syncing forward
+- **Recommendation:** Use cloud sync for safety, or manually backup your document regularly to a USB drive or external hard drive if you prefer to stay offline
 
 ---
 
@@ -530,6 +533,7 @@ When synced to cloud with encryption enabled:
    - ✅ Category
    - ✅ Participant ID
    - ✅ Date
+   - **Tip:** You can exclude sensitive columns (like Date or Participant ID) before exporting if you want to reduce re-identification risk in the exported file.
 6. Click **Download Excel**
 
 ### Excel Features
@@ -675,7 +679,7 @@ A: YaqatW is Word-only for now. We are exploring other Office apps for future re
 A: The practical size limit depends on your computer's memory and processing power, but we recommend keeping each Word document under 50 MB for best performance. Very large documents (100+ MB) may cause Word and the add-in to slow down or become unstable, since all highlights, codes, and annotations must be processed in real time. For large projects, split your work into multiple documents, ideally, one document per interview or source. This approach keeps everything fast, reliable, and easy to manage.
 
 **Q: Does YaqatW work offline?**
-A: Yes, all work is local until you sync. If you do not sync, data stays in your document. Syncing to cloud requires internet connection.
+A: Yes, all work is local until you sync. If you don't enable cloud sync, data stays in your document on that computer only — no backup to the cloud and no access from other devices. Syncing to cloud requires internet connection. **Important trade-off:** While offline work means your data never leaves the machine, it also means no automatic backup. If your document is accidentally deleted or your computer fails, you lose everything. Consider regular manual backups (USB drive, external hard drive) if you choose to stay offline.
 
 **Q: Can I export my data to other formats?**
 A: Yes. Supported export formats include:
