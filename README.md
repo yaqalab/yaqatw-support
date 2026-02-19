@@ -44,6 +44,10 @@ YaqatW is a Microsoft Word add-in designed for researchers, students, and analys
 **Step 2: Trust the Add-in in Word**
 
 **Windows:**
+For detailed instructions with both text and video walkthrough, see:
+- [Microsoft's guide to sideload Office Add-ins from a network share](https://learn.microsoft.com/en-us/office/dev/add-ins/testing/create-a-network-shared-folder-catalog-for-task-pane-and-content-add-ins)
+- [Video: Sideloading an Office Add-in (starts at 2:34)](https://www.youtube.com/watch?v=XXsAw2UUiQo&t=154s)
+
 1. Open Microsoft Word
 2. Create a new blank document
 3. Go to **File → Options → Trust Center → Trust Center Settings → Trusted Add-in Catalogs**
@@ -51,6 +55,17 @@ YaqatW is a Microsoft Word add-in designed for researchers, students, and analys
 5. Click **Browse** and navigate to the folder containing `manifest.xml`
 6. Click **OK**
 7. Close and reopen Word
+
+**Web Office:**
+- [Microsoft's guide to sideload Office Add-ins in Web Office](https://learn.microsoft.com/en-us/office/dev/add-ins/testing/sideload-office-add-ins-for-testing?source=recommendations#manually-sideload-an-add-in-to-office-on-the-web)
+- [Video: Sideloading an Office Add-in from the web (starts at 4:04)](https://youtu.be/XXsAw2UUiQo?si=gOqDAYBVIKPa1heG&t=244)
+
+1. Go to https://office.com and sign in with your Microsoft 365 account
+2. Open Word Online
+3. Go to **Insert → Get Add-ins → Upload My Add-in**
+4. Click **Browse** and select your `manifest.xml` file
+5. Click **Upload**
+6. YaqatW will now be available in your Word Online session
 
 **Mac:**
 1. Open Microsoft Word
@@ -97,13 +112,15 @@ When you open YaqatW for the first time, you'll see the Settings tab with requir
    - Enter your name (lowercase, no spaces)
    - Tracks who made each edit (future feature)
 
+![YaqatW initial settings configuration](./assets/initial-settings.png)
+
 5. **Cloud Sync** (Optional but Recommended)
    - Choose a cloud provider: Google Drive™, Dropbox, OneDrive, or Nextcloud
-   - Click "Connect" and follow the OAuth login prompts
+   - Click "Sync now" and follow the OAuth login prompts
    - YaqatW will create a `YaqatW-DATA` folder in your cloud account
    - This folder stores your coding data for backup and multi-device sync
-   
-![YaqatW initial settings configuration](./assets/initial-settings.png)
+
+  ![alt text](./assets/select-cloud-backend.png) 
 
 **Once these fields are filled, all feature tabs will become available.**
 
@@ -141,6 +158,8 @@ When you open YaqatW for the first time, you'll see the Settings tab with requir
 - Right-click a code → **Edit** to change name/description/color
 - Right-click a code → **Delete** to remove (does not delete highlights, just the code definition)
 
+
+![alt text](./assets/coding-tab.png)
 ---
 
 ### 2. **Categories** Tab - Organize Codes
