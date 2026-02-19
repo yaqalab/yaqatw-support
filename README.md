@@ -36,7 +36,7 @@ YaqatW is a Microsoft Word add-in designed for researchers, students, and analys
 
 ## Installation
 
-### For Beta Testers
+### For Early Access Users
 
 **Step 1: Download the Manifest File**
 - Request the `manifest.xml` file from the YaqaLab team
@@ -724,6 +724,6 @@ A: Yes. YaqatW's source code is currently proprietary as we develop and refine t
 
 ## Thank You!
 
-Thank you for being a YaqatW beta tester! Your feedback is invaluable. Please share thoughts, issues, and feature requests on [GitHub Issues](https://github.com/yaqalab/yaqatw-support/issues).
+Thank you for using YaqatW! Your feedback is invaluable. Please share thoughts, issues, and feature requests on [GitHub Issues](https://github.com/yaqalab/yaqatw-support/issues).
 
 Happy coding! 🎓
