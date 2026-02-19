@@ -230,33 +230,9 @@ Relationship: Cause → Effect
 
 ---
 
-### 4. **Metadata** Tab - Document Details
+### 4. **Settings** Tab - Configuration, Metadata & Cloud Sync
 
-**What it does:** Add structured notes and attributes to your document (interview date, participant ID, location, notes, etc.).
-
-**How to use:**
-
-1. Click the **Settings** tab
-2. Scroll to **Metadata** section
-3. Click **Edit Metadata** or the pencil icon
-4. Add fields and values:
-   - **Field Name:** (e.g., "Interview Date", "Participant ID", "Location")
-   - **Value:** (e.g., "2024-01-15", "P-001", "Remote")
-5. Click the lock icon to lock sensitive metadata (encrypted)
-6. Click **Save**
-
-**Locked (Encrypted) Metadata:**
-- Sensitive info (names, IDs, locations) can be encrypted
-- Only visible if you know the data password (set in initial settings)
-- Encrypted when synced to cloud
-
-**Use Case:** Track interview metadata (date, location, duration), participant codes, or research phase without cluttering your document.
-
----
-
-### 5. **Settings** Tab - Configuration & Cloud Sync
-
-**What it does:** Manage user settings, cloud account connections, AI integrations, and encryption.
+**What it does:** Manage user settings, cloud account connections, AI integrations, encryption, and document metadata.
 
 **Main Settings:**
 
@@ -265,6 +241,12 @@ Relationship: Cause → Effect
 3. **User Name** - Your researcher identity
 4. **File ID** - This document's unique identifier
 5. **User Settings** - Configure your name and preferences
+
+**Metadata:**
+- Click **Edit Metadata** to add structured notes and attributes to your document (interview date, participant ID, location, notes, etc.)
+- Add fields and values (e.g., "Interview Date": "2024-01-15", "Participant ID": "P-001")
+- Click the lock icon to encrypt sensitive metadata (requires data password)
+- Locked fields are only visible when known password is provided
 
 **Cloud Sync:**
 
@@ -301,6 +283,8 @@ For advanced features, configure AI provider API keys:
 3. Copy your API key
 4. Paste in Settings → "DeepL API Key"
 5. Translations are now available for highlighted text
+
+**Important:** When you use DeepL, translation requests (including your API key) are temporarily transmitted through YaqatW's proxy server to process the requests. Your API key is never stored on YaqatW servers.
 
 **Google Translate:**
 1. Visit https://console.cloud.google.com/
@@ -574,7 +558,7 @@ We are exploring advanced AI capabilities for future releases, including:
 ## FAQ
 
 **Q: Is my data private?**
-A: Yes. Your coding data stays in your Word document, in a local IndexedDB scoped to the addin inside your computer, and your chosen cloud account. YaqatW never sends your data to our servers. All processing happens locally in your browser via Office.js. If you enable encryption, sensitive data in your content is protected before being sent to the cloud and cannot be read without your password. However, always remember to keep your password safe, as encrypted data cannot be recovered if the password is lost.
+A: Yes. Your coding data stays in your Word document, in a local IndexedDB scoped to the addin inside your computer, and your chosen cloud account. YaqatW never sends your data to our servers. All processing happens locally in your browser via Office.js. **YaqatW does not collect usage data, personal information, or research content.** If you enable encryption, sensitive data in your content is protected before being sent to the cloud and cannot be read without your password. However, always remember to keep your password safe, as encrypted data cannot be recovered if the password is lost. For complete privacy details, see our [Privacy Policy](https://yaqatw.alefa.net/public/privacy.html).
 
 **Q: Can I recover a deleted code?**
 A: Deleting a code doesn't delete highlights (only the code definition). Highlights remain in the document but will not show in export. The "Trash" tab shows recently deleted items and you can restore deleted code. You can also "permanently delete". In that case, you will not be able to recover the code.
@@ -614,7 +598,7 @@ A: Yes. Shared project access works as follows:
 A: If encryption is enabled, **encrypted data is unrecoverable** if you lose your password. There is no way to recover encrypted data without the password. Please store passwords securely (password manager or backup).
 
 **Q: Can I use YaqatW on Excel or PowerPoint?**
-A: YaqatW is Word-only for now. We are exploring other Office apps for future releases, but it will be just extension of feature like accessing data directly in excel for analysis, etc. 
+A: YaqatW is Word-only for now. We are exploring other Office apps for future releases. The focus will be on seamless data integration with other tools, such as accessing coding data directly in Excel for advanced analysis and visualization.
 
 **Q: How big can my document be?**
 A: The practical size limit depends on your computer's memory and processing power, but we recommend keeping each Word document under 50 MB for best performance. Very large documents (100+ MB) may cause Word and the add-in to slow down or become unstable, since all highlights, codes, and annotations must be processed in real time. For large projects, split your work into multiple documents, ideally, one document per interview or source. This approach keeps everything fast, reliable, and easy to manage.
@@ -632,10 +616,13 @@ A: Yes. Supported export formats include:
 
 Each data type (codes, categories, relationships, highlights) can be exported separately.
 **Q: How much does YaqatW cost?**
-A: YaqatW is free to use. While we are evaluating future monetization models to cover costs such as domain name and hosting. All current features remain at no cost. Any future changes will be announced with plenty of notice.
+A: YaqatW is completely free. There are no subscription fees, no central accounts, and no hidden costs. We believe qualitative research tools should be accessible to all researchers, regardless of institutional resources or budget. While we are exploring models to sustain the project, all current features remain free at no cost. Any significant changes to YaqatW's pricing or availability will be announced with plenty of notice.
 
 **Q: Is there a mobile app?**
 A: No. Office Add-ins (including YaqatW) are not supported on the Word mobile app for iOS or Android, due to Microsoft platform limitations. You can use YaqatW on Word for Windows, Mac, and the web (Office 365 in a browser). On tablets, you must use the full desktop or web version of Word—add-ins do not run in the mobile app. If Microsoft adds support for add-ins on mobile in the future, we will announce it.
+
+**Q: Will YaqatW be open source?**
+A: Yes. YaqatW's source code is currently proprietary as we develop and refine the tool. However, we are committed to releasing YaqatW as open-source software once the project reaches broader adoption, benefiting the research community and enabling collaborative improvements.
 
 ---
 
