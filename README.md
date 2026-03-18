@@ -9,24 +9,33 @@ Welcome to YaqatW! This guide will help you get started with qualitative coding,
 1. [What is YaqatW?](#what-is-yaqatw)
 2. [Installation](#installation)
 3. [Getting Started](#getting-started)
-4. [Key Features](#key-features)
-5. [Workflow Guide](#workflow-guide)
-6. [Cloud Sync](#cloud-sync)
-7. [Encryption & Security](#encryption--security)
-8. [Export & Analysis](#export--analysis)
-9. [AI & Translation](#ai--translation)
-10. [Troubleshooting](#troubleshooting)
-11. [FAQ](#faq)
+4. [Operating Modes](#operating-modes)
+5. [Key Features](#key-features)
+   - [Coding Mode](#coding-mode)
+   - [Mining Mode](#mining-mode)
+   - [Writing Mode](#writing-mode)
+   - [Transcribing Mode](#transcribing-mode)
+   - [Settings (All Modes)](#settingsall-modes)
+6. [Workflow Guide](#workflow-guide)
+7. [Cloud Sync](#cloud-sync)
+8. [Encryption & Security](#encryption--security)
+9. [Export & Analysis](#export--analysis)
+10. [AI & Translation](#ai--translation)
+11. [Troubleshooting](#troubleshooting)
+12. [FAQ](#faq)
 
 ---
 
 ## What is YaqatW?
 
-YaqatW is a Microsoft Word add-in designed for researchers, students, and analysts who conduct qualitative analysis. It enables you to:
+YaqatW is a Microsoft Word add-in designed for researchers, students, and analysts who conduct qualitative analysis. Switch between four specialized modes to match your workflow:
 
-- **Code** text excerpts with custom codes and colors
-- **Organize** codes into categories and hierarchies
-- **Document** relationships between codes and concepts
+- **Coding Mode** - Create custom codes, organize them into categories, and document relationships between concepts
+- **Mining Mode** - Search, analyze code frequencies, and visualize patterns across your data
+- **Writing Mode** - Search your coded data and insert citations directly into your writing
+- **Transcribing Mode** - Transcribe audio recordings with speaker management and time-synced keyboard shortcuts
+
+Core features available in all modes:
 - **Annotate** documents with metadata and field notes
 - **Sync** your work across devices via cloud storage
 - **Export** your analysis to Excel for further investigation
@@ -120,15 +129,58 @@ When you open YaqatW for the first time, you'll see the Settings tab with requir
    - YaqatW will create a `YaqatW-DATA` folder in your cloud account
    - This folder stores your coding data for backup and multi-device sync
 
-  ![alt text](./assets/select-cloud-backend.png) 
+  ![Screenshot: Cloud backend selection dropdown](./assets/select-cloud-backend.png)
 
 **Once these fields are filled, all feature tabs will become available.**
 
 ---
 
+## Operating Modes
+
+YaqatW provides four specialized operating modes. After initial setup, you can switch between modes in Settings to match your current research phase:
+
+### **Coding Mode** (Default)
+**Best for:** Initial data coding, creating code schemes, organizing concepts
+
+**Available tabs:**
+- **Coding** - Create and apply codes to text
+- **Categories** - Organize codes into hierarchical groups
+- **Relationships** - Document connections and patterns between concepts
+- **Settings** - Configuration and export
+
+### **Mining Mode**
+**Best for:** Exploring and familiarizing yourself with your raw source text data before coding
+
+**Available tabs:**
+- **Search** - Full-text search across your raw source document
+- **Frequency** - Analyze word/term frequency in the raw text to identify common topics
+- **Visualize** - Create visual representations (word clouds, frequency charts) of your raw text
+- **Settings** - Configuration and export
+
+### **Writing Mode**
+**Best for:** Drafting papers or reports with citations from your coded data
+
+**Available tabs:**
+- **Cite** - Search coded passages and insert citations into your writing
+- **Settings** - Configuration and export
+
+### **Transcribing Mode**
+**Best for:** Converting audio interviews or recordings into text with speaker labels
+
+**Available tabs:**
+- **Import** - Load audio files for transcription
+- **Transcribe** - Play audio and transcribe with customizable keyboard shortcuts
+- **Settings** - Configuration
+
+You can switch modes anytime via Settings → "yaqatw-mode" to adapt to your current task.
+
+---
+
 ## Key Features
 
-### 1. **Coding** Tab - Mark Up Your Text
+### Coding Mode
+
+#### **Coding** Tab - Mark Up Your Text
 
 **What it does:** Create custom codes (concepts/tags) and apply them to text selections in your document.
 
@@ -158,11 +210,9 @@ When you open YaqatW for the first time, you'll see the Settings tab with requir
 - Right-click a code → **Edit** to change name/description/color
 - Right-click a code → **Delete** to remove (does not delete highlights, just the code definition)
 
+![Screenshot: Coding tab with code list and apply functionality](./assets/coding-tab.png)
 
-![alt text](./assets/coding-tab.png)
----
-
-### 2. **Categories** Tab - Organize Codes
+#### **Categories** Tab - Organize Codes
 
 **What it does:** Group related codes into categories and sub-categories, creating a hierarchy of concepts.
 
@@ -198,11 +248,11 @@ Communication (Category)
 └── Feedback Delivery (Code)
 ```
 
+![Screenshot: Categories tab with hierarchical code organization](./assets/categories-tab.png)
+
 **Use Case:** After coding a document with 20+ codes, group related codes by theme (Behaviors, Attitudes, Outcomes, etc.) to simplify analysis and reporting.
 
----
-
-### 3. **Relationships** Tab - Document Connections Between Concepts
+#### **Relationships** Tab - Document Connections Between Concepts
 
 **What it does:** Create and document relationships between codes/categories to keep track of how concepts connect (cause-effect, temporal, hierarchical, etc.). This helps you organize your thinking and preserve connections you identify in your data.
 
@@ -246,17 +296,224 @@ Relationship: Cause → Effect
     └── Performance (Category2)
 ```
 
+![Screenshot: Relationships tab showing connections and instances](./assets/relationships-tab.png)
+
 **Use Case:** As you read and code, you'll notice connections between concepts. Use this tab to document those relationships (e.g., "Job Stress → High Turnover") so you have a record of patterns you've identified.
 
 ---
 
-### 4. **Settings** Tab - Configuration, Metadata & Cloud Sync
+### Mining Mode
+
+#### **Search** Tab - Full-Text Exploration
+
+**What it does:** Search across your raw source text to locate passages, identify themes, and explore the data before coding.
+
+**How to use:**
+1. Click the **Search** tab
+2. Enter keywords or phrases to find in your document
+3. View all matching passages with surrounding context
+4. Click a result to jump to that location in your document
+5. Review passages to identify patterns and potential codes
+
+**Features:**
+- Full-text search across entire document
+- Case-sensitive or case-insensitive search
+- Show context window around matches
+- Filter by section or date range (if available)
+- Export search results for reference
+
+![Screenshot: Mining search tab with search filters and results list](./assets/mining-search.png)
+
+**Use Case:** Before starting to code, search for key terms mentioned in your research questions or interview guide to get a sense of where important content appears in your document.
+
+#### **Frequency** Tab - Word Frequency Analysis
+
+**What it does:** Analyze the frequency of words and phrases in your raw text to identify the most discussed topics and themes.
+
+**How to use:**
+1. Click the **Frequency** tab
+2. View word frequency results (bar chart or table)
+3. Filter out common stop words ("the", "and", "a") to focus on meaningful terms
+4. Set minimum word length or frequency threshold
+5. Identify which concepts appear most often
+6. Export frequency data for reference
+
+**Analysis Options:**
+- Single words or multi-word phrases
+- Exclude common stop words
+- Minimum frequency threshold
+- Sort by frequency or alphabetically
+- Group related terms
+
+![Screenshot: Mining frequency tab with bar chart and frequency table](./assets/mining-frequency.png)
+
+**Use Case:** Understand what your data is "about" before coding. If "stress" appears 47 times, "team" appears 32 times, and "deadline" appears 28 times, you know these are likely major themes. This informs your initial code design.
+
+#### **Visualize** Tab - Text Visualization
+
+**What it does:** Generate visual representations of your raw text data to quickly grasp dominant topics and language patterns.
+
+**How to use:**
+1. Click the **Visualize** tab
+2. Choose visualization type (word cloud, bar chart, timeline)
+3. Customize parameters (font size for word clouds, number of top words, date range)
+4. Export as image for presentations or reports
+
+**Visualization Types:**
+- **Word Clouds** - Text size represents word frequency; quick visual overview
+- **Frequency Bar Charts** - Top 20/50/100 most common words ranked by occurrence
+- **Timeline Charts** - Word frequency over time (if document has timestamps)
+- **Term Comparison** - Side-by-side comparison of term frequencies across sections or documents
+- **Co-occurence network** - To visualize relationships between words
+
+![Screenshot: Word clouds](./assets/mining-word-cloud.png)
+
+![Screenshot: Mining visualize tab with word cloud and frequency bar chart](./assets/mining-words-co-occurence.png)
+
+**Use Case:** Create a word cloud to include in presentations showing which themes dominate your research. Or use frequency charts to document the raw data landscape at the start of your analysis.
+
+---
+
+### Writing Mode
+
+#### **Cite** Tab - Search and Insert Citations
+
+**What it does:** Search your coded data and insert citations directly into your writing.
+
+**How to use:**
+1. Click the **Cite** tab
+2. Search for codes, keywords, or passages
+3. View matching highlights with context
+4. Click **Insert Citation** to add the quote to your document at the cursor position
+5. Citations include code label, timestamp, and participant ID (if available)
+
+**Features:**
+- Filter by code or category
+- Show surrounding context for each quote
+- Auto-format citations (APA, Chicago, custom)
+- Link to original location in document
+- Batch insert multiple citations
+
+![Screenshot: Writing mode cite tab with search results and cite button](./assets/writing-cite.png)
+
+
+**Use Case:** While writing your analysis or paper, search for specific coded passages to support your arguments. Insert citations without manually copying/pasting and lose track of the source.
+
+---
+
+### Transcribing Mode
+
+#### **Import** Tab - Load Audio Files
+
+**What it does:** Prepare audio files for transcription by uploading and previewing them.
+
+**How to use:**
+1. Click the **Import** tab
+2. Click **Choose File** or drag-and-drop an audio file
+3. Supported formats: MP3, WAV, OGG, M4A, FLAC
+4. Click **Import** to load the audio
+5. Audio metadata (duration, size) is displayed
+6. Return to **Transcribe** tab to begin transcribing
+
+![Screenshot: Transcribing import tab with file upload and audio preview](./assets/transcribing-import.png)
+
+#### **Transcribe** Tab - Audio Playback & Transcription
+
+**What it does:** Transcribe audio recordings with customizable keyboard shortcuts, real-time waveform visualization, and speaker management for multi-speaker interviews.
+
+**How to use:**
+
+**Import Audio:**
+1. Go to the **Import** tab and add an audio file (MP3, WAV, OGG, etc.)
+2. Return to **Transcribing** tab to start playing and transcribing
+
+**Playback Controls:**
+- **Play/Pause** - Start or pause playback
+- **Stop** - Stop and reset to the beginning
+- **Seek Back** - Rewind 5 seconds
+- **Seek Forward** - Fast-forward 5 seconds
+- **Speed Control** - Choose from 0.5x, 0.75x, 1.0x, 1.25x, 1.5x, or 2.0x speed
+- **Real Waveform Peaks** - Toggle in Settings to visualize actual audio waveform instead of synthetic peaks (with localStorage caching for performance)
+
+![Screenshot: Converting WMA to MP3](./assets/transcribing-speakers.png)
+
+**Speaker Management:**
+1. Add speakers for multi-speaker interviews:
+   - Enter speaker name in the "New speaker name" field
+   - Click **Add** button
+2. Switch speakers:
+   - Select from the dropdown menu
+   - Or use the **Switch Speaker** button for quick cycling through speakers
+3. Each transcribed line is tagged with the active speaker and timestamp
+
+![Screenshot: Transcribing tab with audio playback controls and waveform visualization](./assets/transcribing-playback.png)
+
+
+**Keyboard Shortcuts (All Customizable):**
+All shortcuts use `Ctrl+Alt+Key` combination. Configure them directly in the shortcuts table:
+
+| Action | Default Key | Function |
+|--------|-------------|----------|
+| Play/Pause | R | Play or pause audio |
+| Stop | X | Stop playback |
+| Seek Back | ← (Left Arrow) | Rewind 5 seconds |
+| Seek Forward | → (Right Arrow) | Forward 5 seconds |
+| Slow Down | [ | Decrease playback speed |
+| Normal Speed | \\ | Reset to 1.0x speed |
+| Speed Up | ] | Increase playback speed |
+| Insert Timestamp | Enter | Insert current time in [MM:SS] format |
+| Switch Speaker | T | Cycle to next speaker |
+
+**Customizing Shortcuts:**
+1. Scroll to the **Shortcuts** table at the bottom of the Transcribing tab
+2. Click on the shortcut cell for any action
+3. Press `Ctrl+Alt` + the key you want to use
+4. Shortcut is saved automatically (green highlight = saved, red = invalid)
+5. Click × to clear a shortcut
+
+
+**Transcription Workflow:**
+1. Press play and listen to the audio
+2. When you hear content to transcribe, pause or type live (your choice)
+3. Use **Insert Timestamp** (Ctrl+Alt+, by default) to auto-insert the current time
+4. Type your transcription notes in the textarea
+5. Click **Insert** to add the line to your Word document with speaker label and timestamp
+6. Switch speakers as needed (Ctrl+Alt+T by default) and continue
+
+**Textarea Features:**
+- Press **Enter** to insert transcription (same as clicking Insert button)
+- Press **Shift+Enter** for a line break within a note (Not recommended if you want to follow one turen=one paragraph rule that supports the parser in mining.)
+- Textarea shows placeholder text based on active speaker
+
+**Audio Format Support:**
+Supports MP3, WAV, OGG, M4A, FLAC, and other Web Audio API formats. Transcribing settings can be configured in the **Settings** tab for:
+- Playback rate default
+- Timestamp format (MM:SS or HH:MM:SS)
+- Auto-pause on speaker switch (coming soon)
+- Real waveform peak extraction (toggle for performance)
+
+![Screenshot: Transcribing textarea with speaker label and timestamp insertion](./assets/transcribing-insertion.png)
+
+**Use Case:** Conduct qualitative interviews or focus group discussions, then transcribe directly into your Word document with speaker labels and time-indexed quotes for later reference and coding.
+
+---
+
+### Settings (All Modes)
+
+#### **Settings** Tab - Configuration, Metadata & Cloud Sync
 
 **What it does:** Manage user settings, cloud account connections, AI integrations, encryption, and document metadata.
 
+**Available in All Modes**
+
 **Settings are organized into these sections:**
 
-**1. Project**
+**1. Operating Mode**
+- **yaqatw-mode** - Switch between Coding, Mining, Writing, or Transcribing mode
+- Changes which tabs are available
+- Your data persists across modes
+
+**2. Project**
 - **Project Name** - Name your research project (lowercase, numbers, hyphens). Shared across all files in the same project.
 
 **2. Current File**
@@ -272,11 +529,18 @@ Relationship: Cause → Effect
 **4. User**
 - **User Name** - Your name (lowercase, no spaces). Used for tracking who made each edit when collaborating.
 
-**5. General**
+**5. Transcription**
+- **Playback Rate** - Default playback speed (0.5x to 2.0x)
+- **Timestamp Format** - Choose MM:SS or HH:MM:SS format for inserted timestamps
+- **Auto-Pause** - Optionally pause when switching speakers
+- **Auto-Insert Timestamp** - Auto-insert timestamp with transcription
+- **Real Waveform Peaks** - Show actual waveform visualization instead of synthetic peaks (uses OfflineAudioContext; cached in localStorage)
+
+**6. General**
 - **Data Language** - Language for your research data
 - **Writing Language** - Language for the interface
 
-**6. Cloud Server**
+**7. Cloud Server**
 - **Back end** - Choose a cloud provider for optional sync:
   - Disabled (default - local only)
   - Google Drive™
@@ -291,7 +555,7 @@ Relationship: Cause → Effect
   - Nextcloud Username (auto-filled after first sync)
 - **Sync Now** - Click to manually upload/download your coding data
 
-**7. API Settings**
+**8. API Settings**
 
 ⚠️ **SECURITY NOTE:** API keys are stored locally in IndexedDB within the YaqatW add-in on your computer. Only configure these providers if:
 - You use YaqatW on a personally-owned, trusted machine
@@ -337,6 +601,8 @@ For advanced AI and translation features, configure optional API keys from these
 
 **Advanced AI Settings** - Click to configure custom AI providers
 
+![Screenshot: Settings tab with project, encryption, and cloud provider configuration](./assets/settings-tab.png)
+
 ---
 
 **Metadata: Privacy-First Practices**
@@ -366,10 +632,13 @@ Click **Edit Metadata** to add structured notes and attributes to your document:
 - Encrypted fields are only visible when you provide the correct password
 - Remember: encryption does not replace de-identification; minimize what you store
 
+![Screenshot: Metadata editor with field encryption locks](./assets/metadata-editor.png)
 
 ---
 
 ## Workflow Guide
+
+![Screenshot: Complete YaqatW interface showing main layout with tabs and content area](./assets/workflow-main-interface.png)
 
 ### Typical Analysis Workflow
 
@@ -436,6 +705,7 @@ Click **Edit Metadata** to add structured notes and attributes to your document:
 7. Click **Sync Now** to upload your coding data
 8. A `YaqatW-DATA` folder is created in your cloud account
 9. All coding data is uploaded as JSON files
+
 
 **Subsequent Syncs (After First Authorization):**
 - Simply click **Sync Now** whenever you want to upload/download your data (no re-authentication needed until token expires)
@@ -557,6 +827,8 @@ When synced to cloud with encryption enabled:
    - **Tip:** You can exclude sensitive columns (like Date or Participant ID) before exporting if you want to reduce re-identification risk in the exported file.
 6. Click **Download Excel**
 
+![Screenshot: Export configuration dialog with sheet and column selection](./assets/export-configuration.png)
+
 ### Excel Features
 
 The exported workbook includes:
@@ -570,6 +842,7 @@ The exported workbook includes:
 - Frequency of each code (count)
 - Color coding
 - Descriptions
+
 
 **Pivot Tables (Manual):**
 - Create pivots in Excel: Data → Pivot Table
@@ -598,6 +871,8 @@ Once in Excel, you can:
 3. Choose target language (e.g., English)
 4. Translated text appears in a tooltip/sidebar
 5. Option to save translation to metadata
+
+![Screenshot: Translation right-click context menu and translated text display](./assets/translation-feature.png)
 
 **Supported Providers:**
 - **DeepL** (recommended; highest quality) - https://www.deepl.com/pro (free tier: 500K chars/month)
