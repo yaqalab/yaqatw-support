@@ -997,6 +997,12 @@ A: Yes. YaqatW's source code is currently proprietary as we develop and refine t
 
 ---
 
+## Contributors
+**Main Contributors:**
+[frianasoa](https://github.com/frianasoa)
+
+---
+
 ## Thank You!
 
 Thank you for using YaqatW! Your feedback is invaluable. Please share thoughts, issues, and feature requests on [GitHub Issues](https://github.com/yaqalab/yaqatw-support/issues).
