@@ -32,6 +32,7 @@ YaqatW is a Microsoft Word add-in designed for researchers, students, and analys
 
 - **Coding Mode** - Create custom codes, organize them into categories, and document relationships between concepts
 - **Mining Mode** - Search, analyze code frequencies, and visualize patterns across your data
+- **Analyzing Mode** - Use codes, categories, and metadata as variables to explore relationship within the data
 - **Writing Mode** - Search your coded data and insert citations directly into your writing
 - **Transcribing Mode** - Transcribe audio recordings with speaker management and time-synced keyboard shortcuts
 
