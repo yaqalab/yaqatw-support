@@ -9,37 +9,41 @@ Welcome to YaqatW! This guide will help you get started with qualitative coding,
 1. [What is YaqatW?](#what-is-yaqatw)
 2. [Installation](#installation)
 3. [Getting Started](#getting-started)
-4. [Operating Modes](#operating-modes)
-5. [Key Features](#key-features)
+4. [Document Types](#document-types)
+5. [Operating Modes](#operating-modes)
+6. [Key Features](#key-features)
    - [Coding Mode](#coding-mode)
    - [Mining Mode](#mining-mode)
+   - [Analyzing Mode](#analyzing-mode)
+   - [Documenting Mode](#documenting-mode)
    - [Writing Mode](#writing-mode)
    - [Transcribing Mode](#transcribing-mode)
-   - [Settings (All Modes)](#settingsall-modes)
-6. [Workflow Guide](#workflow-guide)
-7. [Cloud Sync](#cloud-sync)
-8. [Encryption & Security](#encryption--security)
-9. [Export & Analysis](#export--analysis)
-10. [AI & Translation](#ai--translation)
-11. [Troubleshooting](#troubleshooting)
-12. [FAQ](#faq)
+   - [Settings (All Modes)](#settings-all-modes)
+7. [Workflow Guide](#workflow-guide)
+8. [Cloud Sync](#cloud-sync)
+9. [Encryption & Security](#encryption--security)
+10. [Export & Analysis](#export--analysis)
+11. [AI & Translation](#ai--translation)
+12. [Troubleshooting](#troubleshooting)
+13. [FAQ](#faq)
 
 ---
 
 ## What is YaqatW?
 
-YaqatW is a Microsoft Word add-in designed for researchers, students, and analysts who conduct qualitative analysis. Switch between four specialized modes to match your workflow:
+YaqatW is a Microsoft Word add-in designed for researchers, students, and analysts who conduct qualitative analysis. Switch between six specialized modes to match each phase of your research workflow:
 
-- **Coding Mode** - Create custom codes, organize them into categories, and document relationships between concepts
-- **Mining Mode** - Search, analyze code frequencies, and visualize patterns across your data
-- **Analyzing Mode** - Use codes, categories, and metadata as variables to explore relationship within the data
-- **Writing Mode** - Search your coded data and insert citations directly into your writing
-- **Transcribing Mode** - Transcribe audio recordings with speaker management and time-synced keyboard shortcuts
+- **Coding Mode** — Create custom codes, organize them into categories, and document relationships between concepts (with optional AI-assisted coding)
+- **Mining Mode** — Search, measure word frequency, map word co-occurrence, and view corpus statistics across your text
+- **Analyzing Mode** — Use codes, categories, metadata, and search groups as variables to explore relationships in your data
+- **Documenting Mode** — Manage evidential artifacts (images, audio, documents) and analytic notes
+- **Writing Mode** — Search your coded data and insert quotes, citations, figures, and tables directly into your writing
+- **Transcribing Mode** — Transcribe audio recordings with speaker management, automatic diarization, and time-synced keyboard shortcuts
 
-Core features available in all modes:
+Core features available across modes:
 - **Annotate** documents with metadata and field notes
 - **Sync** your work across devices via cloud storage
-- **Export** your analysis to Excel for further investigation
+- **Export** your analysis to Excel, CSV, JSON, HTML, or Word
 - **Secure** sensitive data with encryption
 
 ---
@@ -105,7 +109,7 @@ When you open YaqatW for the first time, you'll see the Settings tab with requir
 
 1. **Project Name**
    - Enter a name for your research project (e.g., "interview-study-2024")
-   - Can contain letters (lowercase), numbers, and hyphens
+   - Can contain lowercase letters, numbers, and hyphens
    - **Note:** Project name is shared across all files in the same project
 
 2. **Data Password** (Required for sensitive data)
@@ -116,64 +120,74 @@ When you open YaqatW for the first time, you'll see the Settings tab with requir
 3. **Current File (File ID)**
    - Give this specific document a unique identifier (e.g., "interview-001")
    - Allows you to work on multiple documents within the same project
-   - Each document gets its own codes and highlights, which will be shared with other documents.
+   - Codes, categories, and relationships are shared across all files in the project; highlights belong to each file
 
 4. **User Name**
    - Enter your name (lowercase, no spaces)
-   - Tracks who made each edit (future feature)
+   - Tracks who made each edit when collaborating
 
 ![YaqatW initial settings configuration](./assets/initial-settings.png)
 
 5. **Cloud Sync** (Optional but Recommended)
-   - Choose a cloud provider: Google Drive™, Dropbox, OneDrive, or Nextcloud
-   - Click "Sync now" and follow the OAuth login prompts
+   - Choose a cloud provider: Google Drive™, Dropbox, OneDrive, Nextcloud, or Amazon S3 (and S3-compatible storage)
+   - Click "Sync now" and follow the login prompts
    - YaqatW will create a `YaqatW-DATA` folder in your cloud account
    - This folder stores your coding data for backup and multi-device sync
 
-  ![Screenshot: Cloud backend selection dropdown](./assets/select-cloud-backend.png)
+  ![Cloud backend selection dropdown](./assets/select-cloud-backend.png)
 
 **Once these fields are filled, all feature tabs will become available.**
 
 ---
 
+## Document Types
+
+Before choosing a mode, YaqatW asks what kind of document this is. Set it in **Settings → Document Type**. The document type determines which modes are available:
+
+- **Analysis document** (default) — your raw data / source text that you code and analyze.
+  **All six modes are available.**
+- **Writing document** — a manuscript, report, or chapter you are drafting from already-coded data.
+  Only **Writing, Analyzing, Mining, and Documenting** modes are available (Coding and Transcribing are hidden so you don't accidentally code your manuscript).
+
+**Note:** You can only switch a document to **Writing** type if it has **no highlights**. This keeps coded source data and written output cleanly separated. The typical setup is one (or several) Analysis documents holding your interviews/sources, plus a separate Writing document for your paper — all under the same project name so they share codes and data.
+
+---
+
 ## Operating Modes
 
-YaqatW provides four specialized operating modes. After initial setup, you can switch between modes in Settings to match your current research phase:
+After initial setup, switch between modes from **Settings → yaqatw-mode** (or from the pinned header bar). Your data persists across modes.
 
-### **Coding Mode** (Default)
-**Best for:** Initial data coding, creating code schemes, organizing concepts
+### **Coding Mode**
+**Best for:** Coding source data, building a code scheme, organizing concepts
 
-**Available tabs:**
-- **Coding** - Create and apply codes to text
-- **Categories** - Organize codes into hierarchical groups
-- **Relationships** - Document connections and patterns between concepts
-- **Settings** - Configuration and export
+**Tabs:** Codes · Categories · Relationships · Settings
 
 ### **Mining Mode**
-**Best for:** Exploring and familiarizing yourself with your raw source text data before coding
+**Best for:** Exploring and getting to know your raw text — before, during, or after coding
 
-**Available tabs:**
-- **Search** - Full-text search across your raw source document
-- **Frequency** - Analyze word/term frequency in the raw text to identify common topics
-- **Visualize** - Create visual representations (word clouds, frequency charts) of your raw text
-- **Settings** - Configuration and export
+**Tabs:** Search · Frequency · Co-occurrence · Stats · Settings
+
+### **Analyzing Mode**
+**Best for:** Cross-tabulating and comparing your coded data using codes, categories, metadata, and search groups as variables
+
+**Tabs:** Analysis · Settings
+
+### **Documenting Mode**
+**Best for:** Managing evidence files (artifacts) and analytic memos/notes
+
+**Tabs:** Artifacts · Notes · Settings
 
 ### **Writing Mode**
-**Best for:** Drafting papers or reports with citations from your coded data
+**Best for:** Drafting papers or reports with quotes, citations, figures, and tables drawn from your project
 
-**Available tabs:**
-- **Cite** - Search coded passages and insert citations into your writing
-- **Settings** - Configuration and export
+**Tabs:** Cite · Settings
 
 ### **Transcribing Mode**
-**Best for:** Converting audio interviews or recordings into text with speaker labels
+**Best for:** Converting audio interviews into text with speaker labels and timestamps
 
-**Available tabs:**
-- **Import** - Load audio files for transcription
-- **Transcribe** - Play audio and transcribe with customizable keyboard shortcuts
-- **Settings** - Configuration
+**Tabs:** Import · Transcribe · Diarize · Settings
 
-You can switch modes anytime via Settings → "yaqatw-mode" to adapt to your current task.
+You can switch modes anytime to adapt to your current task.
 
 ---
 
@@ -181,14 +195,12 @@ You can switch modes anytime via Settings → "yaqatw-mode" to adapt to your cur
 
 ### Coding Mode
 
-#### **Coding** Tab - Mark Up Your Text
+#### **Codes** Tab — Mark Up Your Text
 
 **What it does:** Create custom codes (concepts/tags) and apply them to text selections in your document.
 
-**How to use:**
-
 **Create a Code:**
-1. Click the **Coding** tab
+1. Click the **Codes** tab
 2. Click **New Code** (+ button)
 3. Enter:
    - **Code Name** (e.g., "Leadership")
@@ -197,45 +209,51 @@ You can switch modes anytime via Settings → "yaqatw-mode" to adapt to your cur
 4. Click **Create**
 
 **Apply a Code to Text:**
-1. Select a text excerpt in your Word document (the text you want to annotate)
-2. Right-click on the code in the list (or click the code name)
-3. Click **Apply Code** (or icon button)
-4. The selected text is now highlighted with the code's color and labeled with the code name
-5. The highlight appears as a box around the text in Word
+1. Select a text excerpt in your Word document
+2. Click (or right-click) the code in the list and choose **Apply**
+3. The selected text is highlighted with the code's color and labeled with the code name
 
-**View Your Codes:**
-- **Code List** shows all codes with color indicators
-- **Search** box filters codes by name
+**Display & organize the code list:**
+- Switch between **Grid**, **List**, and **Compact** views
+- Use the **search** box to filter codes by name
 
 **Edit or Delete:**
-- Right-click a code → **Edit** to change name/description/color
-- Right-click a code → **Delete** to remove (does not delete highlights, just the code definition)
+- **Edit** to change name/description/color
+- **Delete** to remove the code definition (highlights stay in the document; deleted codes can be restored from the **Trash**)
 
-![Screenshot: Coding tab with code list and apply functionality](./assets/coding-tab.png)
+**Import Comments → Codes:** If your document already has Word review comments, YaqatW can turn them into codes. Choose how each comment maps to a code:
+- First sentence → code name, the rest → description
+- Split on a delimiter (colon, line break, or a custom delimiter)
+- Labeled sections (`[Code]` / `[Description]`)
 
-#### **Categories** Tab - Organize Codes
+A live preview shows how many comments will become new codes, be applied, or be skipped before you confirm.
+
+**AI Code Agent (optional):** When an AI provider is configured (see [AI & Translation](#ai--translation)), the Codes tab offers AI-assisted coding **Suggestions**. You guide the AI without writing prompts from scratch:
+- **Reasoning mode** — *Inductive* (build patterns up from the data), *Deductive* (test predictions from existing theory), or *Abductive* (match to existing codes first, allow new ones to emerge)
+- **Analytic stance** — *Descriptive*, *Interpretive*, *Critical*, or *Comparative*
+- **Research question** and a free-text **prompt** to focus the AI's attention
+- Options: embed/validate against existing codes, include interviewer passages as context only, cap the number of new codes, and output codes in your writing language
+
+Suggested codes are previewed for you to accept, edit, or reject — nothing is applied to your document automatically.
+
+![Coding tab with code list and apply functionality](./assets/coding-tab.png)
+
+#### **Categories** Tab — Organize Codes
 
 **What it does:** Group related codes into categories and sub-categories, creating a hierarchy of concepts.
-
-**How to use:**
 
 **Create a Category:**
 1. Click the **Categories** tab
 2. Click **New Category** (+ button)
-3. Enter:
-   - **Category Name** (e.g., "Leadership Behaviors")
-   - **Description** (optional)
+3. Enter a **Category Name** and optional **Description**
 4. Click **Create**
 
 **Add Codes to a Category:**
-1. Right-click the category or click the expand arrow
-2. Click **Add Codes to Category**
-3. Select codes from the list (checkboxes)
-4. Click **Add Selected**
+1. Open the category
+2. Choose **Add Codes to Category**
+3. Select codes (checkboxes) and confirm
 
-**Organize Hierarchically:**
-- Drag and drop codes within the tree to create sub-hierarchies (To be implemented)
-- Expand/collapse categories by clicking the arrow icon
+**Organize Hierarchically:** Expand/collapse categories with the arrow icon and arrange codes within the tree.
 
 **Example Structure:**
 ```
@@ -249,439 +267,363 @@ Communication (Category)
 └── Feedback Delivery (Code)
 ```
 
-![Screenshot: Categories tab with hierarchical code organization](./assets/categories-tab.png)
+![Categories tab with hierarchical code organization](./assets/categories-tab.png)
 
-**Use Case:** After coding a document with 20+ codes, group related codes by theme (Behaviors, Attitudes, Outcomes, etc.) to simplify analysis and reporting.
+**Use Case:** After coding a document with 20+ codes, group related codes by theme (Behaviors, Attitudes, Outcomes…) to simplify analysis and reporting.
 
-#### **Relationships** Tab - Document Connections Between Concepts
+#### **Relationships** Tab — Document Connections Between Concepts
 
-**What it does:** Create and document relationships between codes/categories to keep track of how concepts connect (cause-effect, temporal, hierarchical, etc.). This helps you organize your thinking and preserve connections you identify in your data.
-
-**How to use:**
+**What it does:** Create and document relationships between codes/categories to record how concepts connect (cause–effect, temporal, hierarchical, etc.).
 
 **Create a Relationship:**
 1. Click the **Relationships** tab
 2. Click **New Relationship** (+ button)
-3. Enter a **Relationship Type** (name the relationship)
-4. Click **Create** (one "Instance" is auto-created)
+3. Name the **Relationship Type** and click **Create** (one "Instance" is auto-created)
 
-**Relationship Type Examples:**
-- **Cause → Effect** (X causes Y)
-- **Then → Now** (temporal progression)
-- **Example → General** (specific instances of a concept)
-- **Part Of** (hierarchical composition)
-- **Precedes** (sequential order)
-- **Contradicts** (conflicting ideas)
+**Relationship Type Examples:** Cause → Effect · Then → Now · Example → General · Part Of · Precedes · Contradicts
 
 **Add Codes/Categories to a Relationship:**
-1. Click the relationship to expand it
-2. Right-click an Instance (numbered box)
-3. Click **Add Code/Category** to add categories (or codes) to each side
-4. Relationships work best with categories, but individual codes can be added too
+1. Open the relationship to expand it
+2. On an Instance, choose **Add Code/Category** for each side
+3. Relationships work best with categories, but individual codes can be added too
 
-**Create Multiple Instances:**
-- Click **Add Instance** to create another pairing
-- Useful for multiple examples of the same relationship type
+**Create Multiple Instances:** Add another Instance to record more examples of the same relationship type.
 
 **Example:**
 ```
 Relationship: Cause → Effect
 ├── Instance 1
-│   ├── Organizational Stress (Category1)
-│   └── High Turnover (Category2)
-├── Instance 2
-│   ├── Leadership Issues (Category1)
-│   └── Team Morale (Category2)
-└── Instance 3
-    ├── Goal Clarity (Code1)
-    └── Performance (Category2)
+│   ├── Organizational Stress (Category)
+│   └── High Turnover (Category)
+└── Instance 2
+    ├── Leadership Issues (Category)
+    └── Team Morale (Category)
 ```
 
-![Screenshot: Relationships tab showing connections and instances](./assets/relationships-tab.png)
-
-**Use Case:** As you read and code, you'll notice connections between concepts. Use this tab to document those relationships (e.g., "Job Stress → High Turnover") so you have a record of patterns you've identified.
+![Relationships tab showing connections and instances](./assets/relationships-tab.png)
 
 ---
 
 ### Mining Mode
 
-#### **Search** Tab - Full-Text Exploration
+Mining works over the **parsed turns** of your text (speaker turns / paragraphs). A **scope** bar at the top of each Mining tab lets you focus the analysis:
+- **Global** — analyze all indexed files in the project, not just the current document
+- **Files** — narrow to selected files (all files by default)
+- **Speakers** — filter to selected speakers
 
-**What it does:** Search across your raw source text to locate passages, identify themes, and explore the data before coding.
+#### **Search** Tab — Full-Text Exploration
 
-**How to use:**
-1. Click the **Search** tab
-2. Enter keywords or phrases to find in your document
-3. View all matching passages with surrounding context
-4. Click a result to jump to that location in your document
-5. Review passages to identify patterns and potential codes
+**What it does:** Search across your text to locate passages and patterns. Seven search modes cover everything from simple substrings to advanced queries:
 
-**Features:**
-- Full-text search across entire document
-- Case-sensitive or case-insensitive search
-- Show context window around matches
-- Filter by section or date range (if available)
-- Export search results for reference
+| Mode | What it does |
+|---|---|
+| **Exact** | Match the exact substring |
+| **Wildcard** | Use `*` for any characters — e.g. `saka*` matches `sakafo`, `sakafoana` |
+| **Boolean** | `AND`, `OR`, `NOT`, and quoted phrases — e.g. `sakafo AND ankizy NOT vary` |
+| **Proximity** | `NEAR/N` or `BEFORE/N` — e.g. `sakafo NEAR/5 ankizy` |
+| **Fuzzy** | Match approximate spellings and morphological variants |
+| **Regex** | Use a JavaScript regular expression |
+| **Named** | Upload a YAML file defining named groups of search terms |
 
-![Screenshot: Mining search tab with search filters and results list](./assets/mining-search.png)
+**Display options** let you show the full speaker turn, speaker name, role (interviewer/interviewee), match score, turn number, and selected metadata fields on each result. Click a result to jump to that location in your document.
 
-**Use Case:** Before starting to code, search for key terms mentioned in your research questions or interview guide to get a sense of where important content appears in your document.
+**Named search** is powerful for theory-driven coding: define groups and subgroups of terms in a YAML file, then control deduplication with the **Exclusion** setting — *None* (every match reported), *Exclude turn* (each turn counted at most once), or *Exclude subgroup* (each subgroup captures only turns not already matched).
 
-#### **Frequency** Tab - Word Frequency Analysis
+![Mining search tab with search filters and results list](./assets/mining-search.png)
 
-**What it does:** Analyze the frequency of words and phrases in your raw text to identify the most discussed topics and themes.
+#### **Frequency** Tab — Word Frequency Analysis
 
-**How to use:**
-1. Click the **Frequency** tab
-2. View word frequency results (bar chart or table)
-3. Filter out common stop words ("the", "and", "a") to focus on meaningful terms
-4. Set minimum word length or frequency threshold
-5. Identify which concepts appear most often
-6. Export frequency data for reference
+**What it does:** Count the most frequent words (or word pairs/triplets) in your text to surface dominant topics.
 
-**Analysis Options:**
-- Single words or multi-word phrases
-- Exclude common stop words
-- Minimum frequency threshold
-- Sort by frequency or alphabetically
-- Group related terms
+**Options:**
+- **N-gram** — count single words, consecutive pairs, or triplets
+- **Min frequency** — hide words appearing fewer than N times
+- **Hapax** — show only words that appear exactly once (hapax legomena)
+- **Filter stopwords** — exclude common function words (pronouns, prepositions, fillers)
+- View results as a frequency **table** or a **word cloud**
 
-![Screenshot: Mining frequency tab with bar chart and frequency table](./assets/mining-frequency.png)
+![Mining frequency tab](./assets/mining-frequency.png)
 
-**Use Case:** Understand what your data is "about" before coding. If "stress" appears 47 times, "team" appears 32 times, and "deadline" appears 28 times, you know these are likely major themes. This informs your initial code design.
+**Use Case:** Understand what your data is "about" before coding. If "stress" appears 47 times and "deadline" 28 times, you know these are likely major themes.
 
-#### **Visualize** Tab - Text Visualization
+#### **Co-occurrence** Tab — Word Networks
 
-**What it does:** Generate visual representations of your raw text data to quickly grasp dominant topics and language patterns.
+**What it does:** Find which words tend to appear near each other (collocates) and visualize them as a network map.
 
-**How to use:**
-1. Click the **Visualize** tab
-2. Choose visualization type (word cloud, bar chart, timeline)
-3. Customize parameters (font size for word clouds, number of top words, date range)
-4. Export as image for presentations or reports
+**Options:**
+- **Target word(s)** — separate multiple with `|` (e.g. `build | home | country`)
+- **Window** — how many tokens to scan left/right of the target
+- **Min frequency** and **Max results** to filter noise
+- **Filter stopwords** to drop function words
+- Toggle between a ranked **table** and a network **Map**
 
-**Visualization Types:**
-- **Word Clouds** - Text size represents word frequency; quick visual overview
-- **Frequency Bar Charts** - Top 20/50/100 most common words ranked by occurrence
-- **Timeline Charts** - Word frequency over time (if document has timestamps)
-- **Term Comparison** - Side-by-side comparison of term frequencies across sections or documents
-- **Co-occurence network** - To visualize relationships between words
+**Network map controls:**
+- **Layout** — Force, Radial, Circular, Clustered, or Tree
+- **Edge style** — straight Line or Curve
+- **Distant edges** — how to draw cross-community / cross-branch links (gray, dashed, dotted, or none)
+- Decorative vs. analytical coloring, node count, and full-map export (PNG/SVG)
 
-![Screenshot: Word clouds](./assets/mining-word-cloud.png)
+![Mining co-occurrence map](./assets/mining-words-co-occurence.png)
 
-![Screenshot: Mining visualize tab with word cloud and frequency bar chart](./assets/mining-words-co-occurence.png)
+#### **Stats** Tab — Corpus Statistics & Visualizations
 
-**Use Case:** Create a word cloud to include in presentations showing which themes dominate your research. Or use frequency charts to document the raw data landscape at the start of your analysis.
+**What it does:** Quantitative overviews of your text and speakers.
+
+- **Word cloud** — words sized by frequency, with linear/sqrt/log scaling, rotation, quality, and color options; export as PNG or SVG
+- **Dispersion plot** — for chosen words, a tick mark on each turn where the word appears, showing whether usage clusters in one section or spreads throughout (optionally split by file)
+- **Turn-length distribution** — how many turns fall into each token-length range
+- **Speaker statistics** — per speaker: turns, average turn length, vocabulary size, and Type-Token Ratio (lexical diversity)
+
+![Word cloud](./assets/mining-word-cloud.png)
+
+**Use Case:** Create a word cloud for a presentation, or use speaker stats to compare how much and how diversely each participant spoke. Word clouds and co-occurrence maps can be **saved as figures** and later inserted into a Writing document (see [Writing Mode](#writing-mode)).
+
+---
+
+### Analyzing Mode
+
+#### **Analysis** Tab — Variable-Based Exploration
+
+**What it does:** Treat your coded data as variables and combine them to explore relationships, much like building a cross-tabulation.
+
+**How it works:**
+1. The left panel lists your available **data items**, grouped by kind:
+   - **Codes**, **Categories**, **Relationships**, **Highlights**, **Metadata** fields, **Co-occurrence** pairs, and named-search **Groups**
+2. **Drag** items into the analysis zones on the right (e.g. rows vs. columns) to define what you want to compare
+3. **Run** the analysis to see the results — counts, overlaps, and (when an AI provider is configured) an AI-written interpretation of the patterns
+4. Results can be opened in a dialog and exported
+
+**Use Case:** Compare how a code is distributed across participant groups, see which codes co-occur, or cross-tabulate metadata (e.g. "Region A" vs "Region B") against your categories — without leaving Word.
+
+> Analyzing mode is available for both Analysis and Writing documents, so you can interrogate your data while drafting.
+
+---
+
+### Documenting Mode
+
+#### **Artifacts** Tab — Manage Evidence Files
+
+**What it does:** Catalog evidential materials that aren't plain text — field photos, audio clips, scanned documents — with provenance and your interpretation.
+
+**Each artifact records:**
+- **Title** (required) — a short identifying label
+- **Source** — where it came from (person, organization, archive, URL)
+- **Collected by** — defaults to your user name
+- **Session** — optional ID linking it to a fieldwork session or visit
+- **Tags** — free-form keywords for filtering
+- **Interpretation** — your reading of what the artifact shows (researcher voice)
+- **Attachments** — the actual binary files (images, audio, documents)
+
+> **Cloud required:** Artifact attachments are stored in your cloud provider's project folder. You must configure a cloud backend in Settings before adding artifacts. Without it, attachments may be lost on a browser reset. If the cloud provider is disconnected, existing attachments may be temporarily unreachable until you reconnect.
+
+Artifacts can be **deprecated** (kept with a reason) or **deleted** (marked deleted). Saved artifacts can later be inserted into a Writing document as images with captions.
+
+#### **Notes** Tab — Analytic Memos
+
+**What it does:** Write and keep analytic notes/memos alongside your project. Notes can be searched and inserted into a Writing document via the Cite tab.
 
 ---
 
 ### Writing Mode
 
-#### **Cite** Tab - Search and Insert Citations
+#### **Cite** Tab — Search and Insert Quotes, Citations, Figures & Tables
 
-**What it does:** Search your coded data and insert citations directly into your writing.
+**What it does:** Pull material from anywhere in your project into the document you're drafting.
+
+**Sources you can search and insert:**
+- **Highlights** — coded passages, with their text, note, or translation
+- **Artifacts** — insert as an image with a caption and source line
+- **Notes** — insert analytic memos
+- **Tables** and **Figures** — insert saved tables and saved word clouds / co-occurrence maps from Mining
 
 **How to use:**
-1. Click the **Cite** tab
+1. Click the **Cite** tab and choose a source
 2. Search for codes, keywords, or passages
-3. View matching highlights with context
-4. Click **Insert Citation** to add the quote to your document at the cursor position
-5. Citations include code label, timestamp, and participant ID (if available)
+3. Review matches with context
+4. Insert at your cursor as:
+   - **Inline** or **Block** quote
+   - **Linked (refreshable)** — stays connected to the source and can be refreshed if the source changes — or **Unlinked (plain paste)**
+   - **Plain text** or **Rich text**
 
-**Features:**
-- Filter by code or category
-- Show surrounding context for each quote
-- Auto-format citations (APA, Chicago, custom)
-- Link to original location in document
-- Batch insert multiple citations
+Quotation formatting (quote characters, the participant/source prefix and suffix, and which metadata field supplies the participant ID) is configurable in **Settings**.
 
-![Screenshot: Writing mode cite tab with search results and cite button](./assets/writing-cite.png)
+![Writing mode cite tab with search results and cite button](./assets/writing-cite.png)
 
-
-**Use Case:** While writing your analysis or paper, search for specific coded passages to support your arguments. Insert citations without manually copying/pasting and lose track of the source.
+**Use Case:** While writing your analysis, search for coded passages that support your argument and insert properly attributed quotes without copy-pasting and losing track of the source.
 
 ---
 
 ### Transcribing Mode
 
-#### **Import** Tab - Load Audio Files
+#### **Import** Tab — Load Audio Files
 
-**What it does:** Prepare audio files for transcription by uploading and previewing them.
+**What it does:** Add and preview an audio file for transcription.
 
-**How to use:**
 1. Click the **Import** tab
-2. Click **Choose File** or drag-and-drop an audio file
-3. Supported formats: MP3, WAV, OGG, M4A, FLAC
-4. Click **Import** to load the audio
-5. Audio metadata (duration, size) is displayed
-6. Return to **Transcribe** tab to begin transcribing
+2. Choose a file or drag-and-drop it
+3. Supported formats: MP3, WAV, OGG, M4A, FLAC, and other Web Audio formats
+4. File metadata (type, size, duration) is displayed
+5. Go to the **Transcribe** tab to begin
 
-![Screenshot: Transcribing import tab with file upload and audio preview](./assets/transcribing-import.png)
+> Transcription and audio features require system file-storage support (on macOS this means Ventura 13 or later). YaqatW will warn you if your system can't store audio.
 
-#### **Transcribe** Tab - Audio Playback & Transcription
+![Transcribing import tab](./assets/transcribing-import.png)
 
-**What it does:** Transcribe audio recordings with customizable keyboard shortcuts, real-time waveform visualization, and speaker management for multi-speaker interviews.
+#### **Transcribe** Tab — Playback, Transcription & Speaker Enrollment
 
-**How to use:**
+**What it does:** Transcribe audio with customizable keyboard shortcuts, waveform visualization, speaker management, and optional AI transcription of marked segments.
 
-**Import Audio:**
-1. Go to the **Import** tab and add an audio file (MP3, WAV, OGG, etc.)
-2. Return to **Transcribing** tab to start playing and transcribing
-
-**Playback Controls:**
-- **Play/Pause** - Start or pause playback
-- **Stop** - Stop and reset to the beginning
-- **Seek Back** - Rewind 5 seconds
-- **Seek Forward** - Fast-forward 5 seconds
-- **Speed Control** - Choose from 0.5x, 0.75x, 1.0x, 1.25x, 1.5x, or 2.0x speed
-- **Real Waveform Peaks** - Toggle in Settings to visualize actual audio waveform instead of synthetic peaks (with localStorage caching for performance)
-
-![Screenshot: Converting WMA to MP3](./assets/transcribing-speakers.png)
+**Playback Controls:** Play/Pause · Stop · Seek Back (−5s) · Seek Forward (+5s) · Speed control (0.5×–2.0×). Toggle **real waveform peaks** in Settings to visualize the actual audio (cached for performance).
 
 **Speaker Management:**
-1. Add speakers for multi-speaker interviews:
-   - Enter speaker name in the "New speaker name" field
-   - Click **Add** button
-2. Switch speakers:
-   - Select from the dropdown menu
-   - Or use the **Switch Speaker** button for quick cycling through speakers
+1. Add speakers in the "New speaker name" field and click **Add**
+2. Switch the active speaker from the dropdown or with the **Switch Speaker** shortcut
 3. Each transcribed line is tagged with the active speaker and timestamp
 
-![Screenshot: Transcribing tab with audio playback controls and waveform visualization](./assets/transcribing-playback.png)
+**Mark a segment & AI transcribe:** Mark a **start** and **end** on the timeline, then **Transcribe** the segment with your configured transcription provider, or **Enroll Speaker** to teach YaqatW that speaker's voice from the segment (used for auto-identification and diarization).
 
+![Transcribing tab with speaker management](./assets/transcribing-speakers.png)
 
-**Keyboard Shortcuts (All Customizable):**
-All shortcuts use `Ctrl+Alt+Key` combination. Configure them directly in the shortcuts table:
+**Keyboard Shortcuts (all customizable):** Shortcuts use `Ctrl+Alt+Key`.
 
-| Action | Default Key | Function |
-|--------|-------------|----------|
-| Play/Pause | R | Play or pause audio |
-| Stop | X | Stop playback |
-| Seek Back | ← (Left Arrow) | Rewind 5 seconds |
-| Seek Forward | → (Right Arrow) | Forward 5 seconds |
-| Slow Down | [ | Decrease playback speed |
-| Normal Speed | \\ | Reset to 1.0x speed |
-| Speed Up | ] | Increase playback speed |
-| Insert Timestamp | Enter | Insert current time in [MM:SS] format |
-| Switch Speaker | T | Cycle to next speaker |
+| Action | Default Key |
+|--------|-------------|
+| Play/Pause | R |
+| Stop | X |
+| Seek Back / Forward | ← / → |
+| Slow Down / Normal / Speed Up | [ / \\ / ] |
+| Insert Timestamp | Enter |
+| Switch Speaker | T |
+| Mark Start / Mark End | (set your own) |
 
-**Customizing Shortcuts:**
-1. Scroll to the **Shortcuts** table at the bottom of the Transcribing tab
-2. Click on the shortcut cell for any action
-3. Press `Ctrl+Alt` + the key you want to use
-4. Shortcut is saved automatically (green highlight = saved, red = invalid)
-5. Click × to clear a shortcut
-
+To rebind, click a shortcut cell in the table and press `Ctrl+Alt` + your key (green = saved, red = invalid, × clears it).
 
 **Transcription Workflow:**
-1. Press play and listen to the audio
-2. When you hear content to transcribe, pause or type live (your choice)
-3. Use **Insert Timestamp** (Ctrl+Alt+, by default) to auto-insert the current time
-4. Type your transcription notes in the textarea
-5. Click **Insert** to add the line to your Word document with speaker label and timestamp
-6. Switch speakers as needed (Ctrl+Alt+T by default) and continue
+1. Play and listen; pause or type live
+2. Insert timestamps as needed
+3. Type your transcription and **Insert** to add the line to Word with speaker label and timestamp
+4. Switch speakers and continue
 
-**Textarea Features:**
-- Press **Enter** to insert transcription (same as clicking Insert button)
-- Press **Shift+Enter** for a line break within a note (Not recommended if you want to follow one turen=one paragraph rule that supports the parser in mining.)
-- Textarea shows placeholder text based on active speaker
+**Tip:** Use **Enter** to insert (same as the Insert button) and **Shift+Enter** for a line break within a note. Keeping one speaker turn per paragraph helps the Mining parser detect turns correctly.
 
-**Audio Format Support:**
-Supports MP3, WAV, OGG, M4A, FLAC, and other Web Audio API formats. Transcribing settings can be configured in the **Settings** tab for:
-- Playback rate default
-- Timestamp format (MM:SS or HH:MM:SS)
-- Auto-pause on speaker switch (coming soon)
-- Real waveform peak extraction (toggle for performance)
+![Transcribing insertion with speaker label and timestamp](./assets/transcribing-insertion.png)
 
-![Screenshot: Transcribing textarea with speaker label and timestamp insertion](./assets/transcribing-insertion.png)
+#### **Diarize** Tab — Automatic Speaker Diarization
 
-**Use Case:** Conduct qualitative interviews or focus group discussions, then transcribe directly into your Word document with speaker labels and time-indexed quotes for later reference and coding.
+**What it does:** Automatically detect *who spoke when* across the whole recording and lay it out as an editable timeline.
+
+**How to use:**
+1. Enroll at least one speaker on the **Transcribe** tab first
+2. On the **Diarize** tab, click **Analyze** — YaqatW decodes the audio, extracts voice features, clusters unknown voices, and merges segments into a timeline
+3. Edit the result directly: select a segment to **split** it at the playhead, **merge** it with the next, **delete** it, **assign** it to a speaker, or **rename** speakers
+4. Zoom, undo/redo, and **export** the diarization as JSON
+
+**Engines & remote option:** Choose a speaker-identification engine in Settings — **DIY MFCC** (offline, free) or **Picovoice Eagle** (higher accuracy, requires a free Picovoice AccessKey). For heavier audio, a **Remote** analyze option can offload diarization to a companion app (configure its URL and API key in Settings).
 
 ---
 
 ### Settings (All Modes)
 
-#### **Settings** Tab - Configuration, Metadata & Cloud Sync
+#### **Settings** Tab — Configuration, Metadata & Cloud Sync
 
-**What it does:** Manage user settings, cloud account connections, AI integrations, encryption, and document metadata.
+**What it does:** Manage project setup, encryption, cloud connections, AI/translation providers, document metadata, transcription, and appearance.
 
-**Available in All Modes**
+**1. Document Type** — Analysis document (all modes) or Writing document (Writing/Analyzing/Mining/Documenting). Switching to Writing requires zero highlights. See [Document Types](#document-types).
 
-**Settings are organized into these sections:**
+**2. Operating Mode (yaqatw-mode)** — Coding, Mining, Analyzing, Documenting, Writing, or Transcribing. Your data persists across modes.
 
-**1. Operating Mode**
-- **yaqatw-mode** - Switch between Coding, Mining, Writing, or Transcribing mode
-- Changes which tabs are available
-- Your data persists across modes
+**3. Project** — **Project Name** (shared across all files in the project).
 
-**2. Project**
-- **Project Name** - Name your research project (lowercase, numbers, hyphens). Shared across all files in the same project.
+**4. Current File** — **File ID** for this document, plus **Re-index current document** to refresh the Mining/Analysis index.
 
-**2. Current File**
-- **File ID** - Unique identifier for this specific document (lowercase, numbers). Allows you to work on multiple documents within the same project.
+**5. Encryption** (appears once Project Name is set)
+- **Data Password** + **Confirm** — encrypts sensitive data
+- **Encrypt cloud data** — enable encryption when syncing
+- **Remember password on this device** — skips re-entry each session (do **not** enable on shared machines; use **Logout** to clear it)
+- ⚠️ Losing your password makes encrypted data **permanently unrecoverable**, and disabling encryption does **not** decrypt existing data
 
-**3. Encryption** (appears once Project Name is set)
-- **Data Password** - Create a strong password (8+ characters, mix of types) to encrypt sensitive data
-- **Confirm Data Password** - Retype your password to confirm
-- **Encrypt Cloud Data** - Checkbox to enable encryption when syncing to cloud
-- ⚠️ **WARNING:** If you lose your password, encrypted data is **permanently unrecoverable**
-- ⚠️ **CAUTION:** Disabling encryption will NOT decrypt existing encrypted data; it will remain encrypted
+**6. User** — **User Name** (tracks who made each edit).
 
-**4. User**
-- **User Name** - Your name (lowercase, no spaces). Used for tracking who made each edit when collaborating.
+**7. General** — **Data language**, **Writing language**, and **UI language**.
 
-**5. Transcription**
-- **Playback Rate** - Default playback speed (0.5x to 2.0x)
-- **Timestamp Format** - Choose MM:SS or HH:MM:SS format for inserted timestamps
-- **Auto-Pause** - Optionally pause when switching speakers
-- **Auto-Insert Timestamp** - Auto-insert timestamp with transcription
-- **Real Waveform Peaks** - Show actual waveform visualization instead of synthetic peaks (uses OfflineAudioContext; cached in localStorage)
+**8. Coding Data** — **Reload coding data** (pull latest codes/categories/relationships from all project files into this document) and **Clear coding data** (wipe and cleanly re-import to fix duplicates). Option to **reveal hidden layers** when selecting a highlight in a hidden layer.
 
-**6. General**
-- **Data Language** - Language for your research data
-- **Writing Language** - Language for the interface
+**9. Cloud Server** — choose a provider (see [Cloud Sync](#cloud-sync)), set the **Sync interval** (0 disables auto-sync), **Sync now**, and **Prepare for offline use** (caches the app shell, Office.js, the Japanese dictionary, and the FFmpeg audio converter so they load without internet).
 
-**7. Cloud Server**
-- **Back end** - Choose a cloud provider for optional sync:
-  - Disabled (default - local only)
-  - Google Drive™
-  - Dropbox
-  - OneDrive (Microsoft 365)
-  - Nextcloud (self-hosted)
-- **Clear Button** - Revoke YaqatW's access to your cloud account
-- **Nextcloud Settings** (if Nextcloud selected):
-  - Nextcloud URL (e.g., https://cloud.example.com)
-  - OAuth Client ID (create in Nextcloud Settings > Security)
-  - OAuth Client Secret (from your OAuth app)
-  - Nextcloud Username (auto-filled after first sync)
-- **Sync Now** - Click to manually upload/download your coding data
+**10. API Settings** — translation and AI provider keys/models (see [AI & Translation](#ai--translation)).
 
-**8. API Settings**
+**11. Transcription** — Speaker-identification **engine** (DIY MFCC / Picovoice Eagle), **Companion Diarizer** URL & key, default **playback speed**, **timestamp format**, and **real waveform peaks**.
 
-⚠️ **SECURITY NOTE:** API keys are stored locally in IndexedDB within the YaqatW add-in on your computer. Only configure these providers if:
-- You use YaqatW on a personally-owned, trusted machine
-- Your computer is password-protected and locked when not in use
-- Your drive has file-level encryption enabled (BitLocker/FileVault)
-- Others don't have access to open the Word document or the plugin on your machine
+**12. Appearance & Insertion** — quote styles, participant label, and how inserted **images/figures** and **tables** are captioned, positioned, and aligned in Writing mode.
 
-For advanced AI and translation features, configure optional API keys from these providers:
-
-**Google Translate™:**
-- **Google API Key**
-  1. Visit https://console.cloud.google.com/
-  2. Create a project and enable the Cloud Translation API
-  3. Create an API key
-  4. Paste in Settings → "Google API Key"
-  5. Note: Usage-based pricing (may have free tier limits)
-
-**DeepL Translation:**
-- **DeepL API Key**
-  1. Visit https://www.deepl.com/pro#developer
-  2. Sign up for a free account (500K characters/month) or Pro ($4.99/month)
-  3. Copy your API key
-  4. Paste in Settings → "DeepL API Key"
-  5. Translations are now available for highlighted text
-  - **How Storage Works:** Your API key is stored in IndexedDB — a database that exists within the YaqatW add-in on your computer. It's not sent to YaqatW servers, but it is accessible to anyone who can access the Word document or has the plugin open on your machine. To keep it secure, protect your machine with strong passwords and disk encryption (BitLocker on Windows, FileVault on macOS) as noted in the Encryption & Security section.
-
-**OpenAI (GPT-3.5, GPT-4):**
-- **OpenAI API Key**
-  1. Visit https://platform.openai.com/api-keys
-  2. Create an API key
-  3. Paste in Settings → "OpenAI API Key"
-- **OpenAI Model** - Select your model (e.g., "gpt-3.5-turbo"). Pricing shown per 1M tokens.
-  - Cost: Pay-per-use; track spending in OpenAI dashboard
-
-**DeepSeek:**
-- **DeepSeek API Key**
-  1. Visit https://platform.deepseek.com/api
-  2. Create an API key
-  3. Paste in Settings → "DeepSeek API Key"
-- **DeepSeek Model** - Choose:
-  - DeepSeek Chat
-  - DeepSeek Reasoner
-
-**Advanced AI Settings** - Click to configure custom AI providers
-
-![Screenshot: Settings tab with project, encryption, and cloud provider configuration](./assets/settings-tab.png)
+![Settings tab](./assets/settings-tab.png)
 
 ---
 
 **Metadata: Privacy-First Practices**
 
 Click **Edit Metadata** to add structured notes and attributes to your document:
-- Add fields and values (e.g., "Participant ID": "P-001")
+- Add fields and values (e.g., "Analysis Round": "1")
 - Click the lock icon to encrypt sensitive fields (requires data password)
 - Locked fields are only visible when you provide the correct password
 
 **✅ Safe to store in metadata:**
-- Analysis phase or round (e.g., "Coding Round 1", "Initial Analysis")
-- General time periods (e.g., "Spring 2024", "Q1 2024") instead of exact dates
-- Geographic regions (e.g., "Region A", "Urban Area") instead of specific locations
-- Non-identifying notes (e.g., "Document contains technical discussion", "Follow-up needed")
-- Placeholder codes only (e.g., "P-001", "P-002")
+- Analysis phase or round (e.g., "Coding Round 1")
+- General time periods (e.g., "Spring 2024") instead of exact dates
+- Geographic regions (e.g., "Region A") instead of specific locations
+- Non-identifying notes
+- Placeholder codes only (e.g., "P-001")
 
 **❌ Do NOT store in YaqatW (even encrypted):**
-- Actual participant names or contact information
+- Real participant names or contact information
 - Real interview dates or specific locations
-- Participant real ID numbers, email addresses, or identifying codes
-- Government IDs, medical record numbers, or other direct identifiers
+- Real ID numbers, email addresses, or other direct identifiers
 
-**Keep mapping separate:** Store the key linking placeholder codes (P-001) to actual identities in a completely separate, secure file outside of YaqatW.
+**Keep mapping separate:** Store the key linking placeholder codes (P-001) to real identities in a completely separate, secure file outside of YaqatW.
 
-**If you must add localized metadata:**
-- Click the lock icon to encrypt fields (requires data password)
-- Encrypted fields are only visible when you provide the correct password
-- Remember: encryption does not replace de-identification; minimize what you store
-
-![Screenshot: Metadata editor with field encryption locks](./assets/metadata-editor.png)
+![Metadata editor with field encryption locks](./assets/metadata-editor.png)
 
 ---
 
 ## Workflow Guide
 
-![Screenshot: Complete YaqatW interface showing main layout with tabs and content area](./assets/workflow-main-interface.png)
+![YaqatW main interface](./assets/workflow-main-interface.png)
 
 ### Typical Analysis Workflow
 
-**Phase 1: Document Setup (5 min)**
-1. Create a new Word document and open it
-2. Open YaqatW add-in
-3. Complete Settings (project name, password, file ID, user name)
-4. Connect to cloud sync (optional but recommended)
+**Phase 1: Document Setup**
+1. Create/open a Word document and open YaqatW
+2. Complete Settings (project name, password, file ID, user name)
+3. Confirm Document Type is **Analysis**
+4. Connect cloud sync (optional but recommended)
 
-**Phase 2: Initial Coding (30-60 min)**
-1. Read through your document
-2. Identify key themes, concepts, or ideas
-3. Create codes as you go (Coding tab → New Code)
-4. Select text and apply codes (right-click code → Apply)
-5. Adjust colors for visual clarity
+**Phase 2: Get to Know the Data (Mining)**
+1. Use **Search** to locate key terms from your research questions
+2. Use **Frequency** and **Stats** to see dominant topics and speaker patterns
+3. Use **Co-occurrence** to spot which concepts cluster together
 
-**Phase 3: Organization (10-15 min)**
-1. Review all codes (Coding tab)
-2. Group related codes into Categories
-3. Delete or merge redundant codes
-4. Build a category hierarchy
+**Phase 3: Coding**
+1. In **Coding**, read through and create codes as you go
+2. Select text and apply codes; adjust colors for clarity
+3. Optionally use the **AI Code Agent** for suggestions, then accept/edit
 
-**Phase 4: Document Relationships (10-15 min)**
-1. Review your codes and identify patterns or connections
-2. Create Relationships (cause-effect, temporal, etc.) to document what you notice
-3. Link codes/categories to show how they connect
-4. Note any recurring patterns or outliers
+**Phase 4: Organization**
+1. Group related codes into **Categories**
+2. Document **Relationships** (cause–effect, temporal, etc.)
+3. Merge or delete redundant codes (recover from **Trash** if needed)
 
-**Phase 5: Metadata & Documentation (5-10 min)**
-1. Add Metadata using placeholder codes (e.g., "P-001"), general time periods (e.g., "Spring 2024"), and regions (e.g., "Region A") — not exact dates, specific locations, or real names
-2. Reserve "lock" encryption only for non-identifying metadata if absolutely necessary
-3. Add analysis notes or context (e.g., "Initial coding pass", "Follow-up review")
+**Phase 5: Analyze**
+1. In **Analyzing**, drag codes/categories/metadata into the analysis zones
+2. Run comparisons and review the results (and AI interpretation if configured)
 
-**Phase 6: Cloud Sync & Backup (2 min)**
-1. Click Settings → Sync Now
-2. Verify data uploaded to cloud provider
-3. Cross-project sync now available on other devices
+**Phase 6: Document & Sync**
+1. Add **Metadata** using placeholders and general descriptors
+2. Capture **Artifacts** and **Notes** in Documenting mode
+3. Click **Sync Now** to back up to your cloud provider
 
-**Phase 7: Export & Further Analysis (10 min)**
-1. Go to Settings → Export
-2. Export to Excel for pivot tables, statistical analysis, or visualizations
-3. Use Excel to generate frequency counts, cross-tabs, or charts
+**Phase 7: Write & Export**
+1. In a separate **Writing document**, use **Cite** to insert quotes, figures, and tables
+2. Export data to Excel/CSV/JSON for further analysis
 
 ---
 
@@ -690,48 +632,41 @@ Click **Edit Metadata** to add structured notes and attributes to your document:
 ### Why Sync Your Data?
 
 - **Backup:** Protect your work against accidental deletion or computer failure
-- **Multi-device:** Access your project on laptop, tablet, or different computer
+- **Multi-device:** Access your project on a laptop, tablet, or another computer
 - **Collaboration:** (Experimental) Share projects with research team members
-- **Manual:** Click "Sync Now" anytime to upload/download your coding data
+- **Manual:** Click "Sync Now" anytime, or set an automatic interval
 
-### How to Sync 
+### Supported Providers
+
+- **Google Drive™**, **Dropbox**, **OneDrive** (Microsoft 365), and **Nextcloud** (self-hosted) connect via secure sign-in (OAuth)
+- **Amazon S3** and **S3-compatible** storage connect with an endpoint, region, bucket, and access keys (use **Test connection** after saving)
+
+### How to Sync
 
 **First Time Setup:**
-1. Go to **Settings** tab
-2. Under "Cloud Server" section, select **Back end**: Google Drive, Dropbox, OneDrive, or Nextcloud
-3. Click **Connect** button
-4. A browser dialog opens asking you to sign in and authorize YaqatW to access your cloud account
-5. Review permissions and click "Accept" or "Authorize"
-6. Return to YaqatW (browser closes after authorization)
-7. Click **Sync Now** to upload your coding data
-8. A `YaqatW-DATA` folder is created in your cloud account
-9. All coding data is uploaded as JSON files
+1. Go to **Settings → Cloud Server** and select a **Back end**
+2. For the OAuth providers, click **Connect** and sign in / authorize in the dialog that opens; for S3, fill in the endpoint/region/bucket/keys and **Test connection**
+3. Click **Sync Now** — a `YaqatW-DATA` folder is created and your data is uploaded
 
-
-**Subsequent Syncs (After First Authorization):**
-- Simply click **Sync Now** whenever you want to upload/download your data (no re-authentication needed until token expires)
+**Subsequent Syncs:** Just click **Sync Now** (no re-authentication until the token expires).
 
 ### What Gets Synced?
 
-- ✅ Codes, categories, relationships (always)
-- ✅ Highlights and metadata (always)
-- ✅ Settings (per-file, not global)
-- ⚠️ Encrypted fields only if encryption enabled
+- ✅ Codes, categories, relationships
+- ✅ Highlights and metadata
+- ✅ Notes and artifacts (artifact files are stored in the cloud folder)
+- ✅ Per-file settings
+- ⚠️ Encrypted fields only if encryption is enabled
 
 ### Sync Conflicts
 
-If you edit on two devices before syncing:
-- **Latest edit wins** (based on modification timestamp)
-- No data loss; older versions overwritten
-- If critical, manually backup files before sync
+If you edit on two devices before syncing, the **latest edit wins** (by modification timestamp). To be safe, sync before and after working, and back up the document if a change is critical.
 
 ### Offline Work
 
-- **Trade-off: Backup vs. Accessibility**
-  - If you don't use cloud sync, your work stays only on this computer — no backup to cloud, no access from other devices
-  - If your Word document is deleted accidentally or device fails, all your work is lost unless you manually backup the file
-  - Next time you sync (if you enable it later), changes would upload automatically, but only from when you start syncing forward
-- **Recommendation:** Use cloud sync for safety, or manually backup your document regularly to a USB drive or external hard drive if you prefer to stay offline
+- Without cloud sync, your work stays only on this computer — no cloud backup, no multi-device access. If the document is deleted or the device fails, the work is lost unless you back up the file yourself.
+- Use **Settings → Prepare for offline use** to cache the app so it loads without internet (AI, translation, and sync still need a connection).
+- **Recommendation:** Use cloud sync, or back up your document regularly to external storage if you prefer to stay offline.
 
 ---
 
@@ -741,161 +676,97 @@ If you edit on two devices before syncing:
 
 **Best practice: Don't store sensitive identifiers in YaqatW at all.**
 
-⚠️ **Important:** Even encrypted data can pose risks if stored alongside research content. Instead:
-- **Use placeholder codes** for participants (e.g., "P-001", "P-002", "Interview-Wave1-001") in YaqatW
-- **Keep participant mapping separate**: Store the actual mapping (P-001 = John Smith) in a completely separate, secure file outside of YaqatW
-- **Minimize context data**: Use general descriptors (e.g., "Interview Round 2" instead of exact dates; "Region A" instead of specific addresses)
-- Only include metadata fields that are absolutely necessary for your analysis
+- **Use placeholder codes** for participants (e.g., "P-001")
+- **Keep participant mapping separate** in a secure file outside YaqatW
+- **Minimize context data**: use general descriptors (e.g., "Interview Round 2", "Region A")
+- Only include metadata that is absolutely necessary
 
-**Important Distinction:** When encryption is enabled, only data *sent to the cloud* is encrypted. **Data stored on your computer remains unencrypted** and accessible to anyone with access to your machine. To protect your local documents:
-- ✅ Use a strong password to lock your computer
-- ✅ Store YaqatW documents in your user's protected data folder (not shared or public folders)
-- ✅ Enable file-level encryption on sensitive folders (BitLocker on Windows, FileVault on macOS)
-- ✅ Consider restricting physical access to your computer
+**Important:** When encryption is enabled, only data *sent to the cloud* is encrypted. **Data stored on your computer remains unencrypted.** Protect your local machine:
+- ✅ Use a strong password and lock your computer
+- ✅ Store documents in your protected user folder
+- ✅ Enable disk encryption (BitLocker on Windows, FileVault on macOS)
 - ❌ Never leave your computer unlocked or share user accounts
 
 ### When to Encrypt?
 
-**Enable encryption if your data contains:**
-- Sensitive research content that requires protection (coded quotes, data excerpts)
-- Health, financial, or confidential information in the actual research text
-- Any data that must comply with GDPR, HIPAA, or institutional policy
-
-**Do NOT encrypt to justify storing identifiers.** De-identify first; encrypt only sensitive content if needed.
+Enable encryption if your data contains sensitive research content (coded quotes, health/financial information) or must comply with GDPR, HIPAA, or institutional policy. **Don't encrypt to justify storing identifiers** — de-identify first.
 
 ### How Encryption Works
 
-1. Go to **Settings** → **Data Password**
-2. Enter a strong password (8+ characters, mix of types)
-3. Confirm the password
-4. Check **Encrypt Cloud Data**
-5. Click **Save**
+1. Go to **Settings → Data Password**, enter a strong password (8+ characters) and confirm
+2. Check **Encrypt cloud data**
+3. Save
 
 ### What Gets Encrypted?
 
-When synced to cloud with encryption enabled:
-- Text excerpts (highlighted passages)
-- Translations
-- Comments and notes
-- **NOT encrypted:** Code names, category structure (readable but content hidden)
+When synced with encryption enabled: text excerpts, translations, comments, and notes are encrypted. Code names and category structure remain readable (structure visible, content hidden).
 
 ### ⚠️ Important Warnings
 
-1. **Password Loss = Data Loss**
-   - If you forget your password, encrypted data is **permanently unrecoverable**
-   - Write your password down and store securely (password manager, printed backup)
-
-2. **Cannot Disable Encryption**
-   - Once encrypted, you **cannot decrypt** by disabling encryption
-   - Old encrypted data will appear as unreadable gibberish
-   - Plan ahead: encrypt from the start or never encrypt
-
-3. **Sharing Encrypted Projects**
-   - If sharing with collaborators, all must use the same password
-   - Communicate password securely (NOT via email/chat)
-   - Use password manager or secure channel
+1. **Password Loss = Data Loss** — forgotten passwords mean encrypted data is **permanently unrecoverable**. Store it in a password manager and keep a printed backup.
+2. **Cannot Disable Encryption** — once encrypted, disabling encryption will **not** decrypt old data; it appears as unreadable gibberish.
+3. **Sharing Encrypted Projects** — all collaborators must use the same password, communicated through a secure channel (not email/chat).
 
 ### Encryption Best Practices
 
-- ✅ Use passwords like: `Res!rch2024Strong`
-- ✅ Store password in a password manager (1Password, Bitwarden, LastPass)
-- ✅ Keep a printed backup in a locked drawer
-- ❌ Don't use simple passwords like "123456" or "password"
-- ❌ Don't share password via email or chat
-- ❌ Don't write password on a Post-it on your monitor
+- ✅ Use strong passwords like `Res!rch2024Strong`
+- ✅ Store the password in a password manager (1Password, Bitwarden, LastPass)
+- ❌ Don't use simple passwords or write the password on a sticky note
 
 ---
 
 ## Export & Analysis
 
+### Export Formats
+
+YaqatW exports from Mining footers and the coding tabs in several formats: **Excel (XLSX)**, **CSV**, **JSON**, **HTML**, and **Word (DOCX)**. Word clouds and co-occurrence maps export as **PNG/SVG images**. Many tabs offer **Export** (current view) and **Export All**.
+
 ### Export to Excel
 
-1. Go to **Settings** tab
-2. Scroll to **Export** section
-3. Click **Export to Excel**
-4. Choose which sheets to include:
-   - ✅ Data (all highlights with codes)
-   - ✅ Codes (code inventory)
-   - ✅ Categories (category definitions)
-   - ✅ Relationships (relational analysis)
-   - ✅ Metadata (document info)
-5. Choose columns to include:
-   - ✅ Text excerpts
-   - ✅ Code names
-   - ✅ Category
-   - ✅ Participant ID
-   - ✅ Date
-   - **Tip:** You can exclude sensitive columns (like Date or Participant ID) before exporting if you want to reduce re-identification risk in the exported file.
-6. Click **Download Excel**
+1. From a coding tab or Settings, open **Export Options**
+2. Choose which sheets to include — Data (highlights with codes), Codes, Categories, Relationships, Metadata
+3. Choose which columns to include (you can exclude sensitive columns like Date or Participant ID to reduce re-identification risk)
+4. Download the workbook
 
-![Screenshot: Export configuration dialog with sheet and column selection](./assets/export-configuration.png)
-
-### Excel Features
-
-The exported workbook includes:
-
-**Data Sheet:**
-| Highlight | Text | Code | Category | Participant | Date |
-|-----------|------|------|----------|-------------|------|
-| 1 | "Quote here..." | Leadership | Behaviors | P-001 | Q1 2024 |
-
-**Code Summary Sheet:**
-- Frequency of each code (count)
-- Color coding
-- Descriptions
-
-
-**Pivot Tables (Manual):**
-- Create pivots in Excel: Data → Pivot Table
-- Cross-tabulate: Codes vs. Participants, Codes vs. Dates, etc.
-- Generate charts for visualization
+![Export configuration dialog](./assets/export-configuration.png)
 
 ### Further Analysis
 
-Once in Excel, you can:
-- Create pivot tables for code frequencies
-- Generate charts (bar, pie, timeline)
-- Calculate co-occurrence (when codes appear together)
-- Filter by participant, date, or category
-- Export to statistical software (R, SPSS) for advanced analysis
+Once in Excel you can build pivot tables for code frequencies, cross-tabulate codes vs. participants or dates, generate charts, compute co-occurrence, and export to R/SPSS/Python for advanced analysis. (You can also do much of this in-app via [Analyzing Mode](#analyzing-mode).)
 
 ---
 
 ## AI & Translation
 
-### Translation (DeepL Recommended)
+YaqatW integrates optional AI and translation providers. **All keys are stored locally** on your machine — see the security note below.
 
-**For highlighting a quote in a foreign language:**
+⚠️ **SECURITY NOTE:** API keys are stored locally in IndexedDB within the YaqatW add-in on your computer. They are not sent to YaqatW servers, but they are accessible to anyone who can open the Word document or the add-in on your machine. Only configure providers if your computer is personally owned, password-protected, locked when unattended, and disk-encrypted (BitLocker/FileVault).
 
-1. Select the highlighted text
-2. Right-click → **Translate** (if API key configured)
-3. Choose target language (e.g., English)
-4. Translated text appears in a tooltip/sidebar
-5. Option to save translation to metadata
+### Translation
 
-![Screenshot: Translation right-click context menu and translated text display](./assets/translation-feature.png)
+For a highlighted quote in another language: select the highlight and **Translate** (when a provider is configured), then optionally save the translation to the highlight.
 
-**Supported Providers:**
-- **DeepL** (recommended; highest quality) - https://www.deepl.com/pro (free tier: 500K chars/month)
-- **Google Translate™** (requires API key) - https://console.cloud.google.com/
-- **OpenAI** (advanced models for special use cases) - https://platform.openai.com/api-keys
+**Supported translation providers:**
+- **DeepL** (recommended; highest quality) — https://www.deepl.com/pro#developer (free tier ~500K chars/month). Paste the key in **Settings → DeepL API Key**.
+- **Google Translate™** — create a key in https://console.cloud.google.com/ (enable Cloud Translation API), paste in **Settings → Google API Key**.
 
-### How to Get DeepL API Key
+![Translation feature](./assets/translation-feature.png)
 
-1. Go to https://www.deepl.com/pro#developer
-2. Click "Sign up" for Free or Pro plan
-3. Free plan: 500,000 characters/month
-4. Copy your API key from the dashboard
-5. Paste in YaqatW Settings → "DeepL API Key"
+### AI Providers (for the Code Agent & Analysis interpretation)
 
-### Future AI Features (In Planning)
+Configure any of these in **Settings → API Settings** (each has an API key, a model selector, and an optional max-tokens field):
 
-We are exploring advanced AI capabilities for future releases, including:
-- AI-assisted code suggestions based on text patterns
-- Export to statistical software (SPSS, R, STATA) for quantitative analysis
-- Advanced analytics dashboards
+| Provider | Get a key |
+|---|---|
+| **OpenAI** | https://platform.openai.com/api-keys |
+| **Claude (Anthropic)** | https://console.anthropic.com/ |
+| **Groq** | https://console.groq.com/keys |
+| **Gemini (Google)** | https://aistudio.google.com/app/apikey |
+| **DeepSeek** | https://platform.deepseek.com/api |
 
-**Note:** These features are still in early planning. Timelines and availability are not confirmed. Current releases focus on core coding, categorization, and export functionality.
+A **Custom AI Settings** option lets advanced users point at a custom provider/endpoint. AI is used for the **Code Agent** suggestions (Coding mode), **Analysis** interpretation (Analyzing mode), and optional **segment transcription**. Costs are pay-per-use and tracked in each provider's dashboard.
+
+> All AI, translation, and cloud features require an internet connection. When offline, YaqatW shows a banner and these features are unavailable.
 
 ---
 
@@ -905,102 +776,65 @@ We are exploring advanced AI capabilities for future releases, including:
 
 | Problem | Cause | Solution |
 |---------|-------|----------|
-| "Settings not initialized" error | Missing required fields in initial setup | Complete all 4 required fields (Project, Password, File ID, User) and click Save |
-| Highlights not appearing | Text selection issue or script error | Try again, ensuring you've selected text; if persistent, refresh document |
-| "IndexedDB quota exceeded" | Document too large with too many highlights | Archive old documents; delete non-essential highlights; ask support |
-| Cloud sync fails | OAuth token expired | Go to Settings, click "Connect" for cloud provider again |
-| "Password incorrect" | Wrong password entered | Check CAPS LOCK; confirm password matches initial setup |
-| Document won't save | Office permission issue | Save manually with Ctrl+S (Windows) or Cmd+S (Mac) |
-| Add-in crashes | Memory limit or code error | Close and reopen Word; clear browser cache; restart computer if needed |
-| Encryption shows gibberish | Previously encrypted with different password | Confirm you're using the original password; if lost, data unrecoverable |
+| "Settings not initialized" | Missing required setup fields | Complete Project, Password, File ID, and User, then Save |
+| Highlights not appearing | Text not selected / transient error | Re-select text and apply again; refresh the document |
+| "Limited storage mode" banner | IndexedDB unavailable | Coding data still saves, but attachments/large files can't be stored — restart Word or update Office/your browser |
+| "Audio features unavailable" banner | OS lacks required file storage (macOS < 13) | Update your OS to enable audio import, transcription, and diarization |
+| Cloud sync fails | OAuth token expired / S3 credentials wrong | Reconnect the provider in Settings; for S3 use **Test connection** |
+| "Password incorrect" | Wrong password | Check CAPS LOCK; confirm it matches the original |
+| Diarization won't run | No enrolled speakers | Enroll at least one speaker on the Transcribe tab first |
+| Encryption shows gibberish | Encrypted with a different password | Use the original password; if lost, data is unrecoverable |
 
 ### Getting Help
 
-- **Report Issues:** Visit https://github.com/yaqalab/yaqatw-support/issues and create a new issue with:
-  - Error message (from F12 console)
-  - Steps to reproduce
-  - Browser/Word version
-  - Cloud provider (if applicable)
-
-- **Documentation:** https://github.com/yaqalab/yaqatw-support
-- **Feature Requests:** Discuss in [GitHub® Issues](https://github.com/yaqalab/yaqatw-support/issues)
+- **Report Issues:** https://github.com/yaqalab/yaqatw-support/issues — include the error message (from the F12 console), steps to reproduce, your Word/browser version, and cloud provider if relevant
+- **Documentation & Feature Requests:** https://github.com/yaqalab/yaqatw-support
 
 ---
 
 ## FAQ
 
 **Q: Is my data private?**
-A: Yes. Your coding data stays in your Word document, in a local IndexedDB scoped to the addin inside your computer, and your chosen cloud account. YaqatW never sends your data to our servers. All processing happens locally in your browser via Office.js. **YaqatW does not collect usage data, personal information, or research content.** If you enable encryption, sensitive data in your content is protected before being sent to the cloud and cannot be read without your password. However, always remember to keep your password safe, as encrypted data cannot be recovered if the password is lost. **Important:** Encryption applies only to cloud sync; data on your computer remains unencrypted, so protect your local machine with strong passwords and disk encryption as discussed in the [Encryption & Security](#encryption--security) section. For complete privacy details, see our [Privacy Policy](https://yaqatw.alefa.net/public/privacy.html).
+A: Yes. Your coding data stays in your Word document, in a local IndexedDB scoped to the add-in on your computer, and in your chosen cloud account. YaqatW never sends your data to our servers — all processing happens locally via Office.js. **YaqatW does not collect usage data, personal information, or research content.** If you enable encryption, sensitive content is protected before being sent to the cloud and cannot be read without your password (keep that password safe — encrypted data can't be recovered if it's lost). **Encryption applies only to cloud sync; local data is unencrypted,** so protect your machine with strong passwords and disk encryption. For full details, see our [Privacy Policy](https://yaqatw.alefa.net/public/privacy.html).
 
 **Q: Can I recover a deleted code?**
-A: Deleting a code doesn't delete highlights (only the code definition). Highlights remain in the document but will not show in export. The "Trash" tab shows recently deleted items and you can restore deleted code. You can also "permanently delete". In that case, you will not be able to recover the code.
+A: Yes. Deleting a code doesn't delete its highlights (only the definition). The **Trash** tab shows recently deleted items so you can restore them; you can also permanently delete, after which recovery isn't possible.
+
+**Q: What's the difference between an Analysis document and a Writing document?**
+A: An **Analysis document** holds your source data and supports all modes (including Coding and Transcribing). A **Writing document** is your manuscript and exposes only Writing, Analyzing, Mining, and Documenting. You can only switch a document to Writing type if it has no highlights. Keep them under the same project name so they share codes and data.
 
 **Q: Can I share a project with my research team?**
-A: Yes. Shared project access works as follows:
-
-1. **Initial Setup:**
-   - User A creates project and completes initial configuration
-   - User A connects to cloud storage and syncs
-   - User A shares the `YaqatW-DATA` cloud folder with collaborators
-
-2. **Team Member Setup:**
-   - User B configures YaqatW with the same project name
-   - User B connects to the shared cloud folder (or their own copy if preferred)
-   - User B clicks "Sync Now" to download existing codes and data
-
-3. **Multi-File Workflow:**
-   - Each team member works on separate documents (different File IDs)
-   - All documents share the same codes, categories, and relationships
-   - When you "Sync Now", all your document's highlights and data upload
-   - Other team members can see your new codes by syncing
-
-4. **Important Guidelines:**
-   - **Never edit the same file simultaneously** - always sync before starting work
-   - If two people edit the same file, the last sync wins (one version overwrites the other)
-   - Always click "Sync Now" before and after working
-   - Use different File IDs for each person (e.g., "interview-001-userid", "interview-002-userid")
-   - Consider assigning different documents to different researchers to avoid conflicts
-
-5. **No Need for Shared Accounts:**
-   - Each researcher uses their own credentials for cloud providers
-   - YaqatW only needs access to the shared `YaqatW-DATA` folder
-   - All team members retain data autonomy
+A: Yes. One member creates the project, syncs, and shares the `YaqatW-DATA` cloud folder. Others configure YaqatW with the **same project name**, connect to the shared folder, and **Sync Now** to pull existing codes/data. Each person works on separate documents (different File IDs) sharing the same codes, categories, and relationships. **Never edit the same file simultaneously** — always sync before and after working; the last sync wins. Each researcher uses their own cloud credentials.
 
 **Q: What if I lose my password?**
-A: If encryption is enabled, **encrypted data is unrecoverable** if you lose your password. There is no way to recover encrypted data without the password. Please store passwords securely (password manager or backup).
+A: If encryption is enabled, **encrypted data is unrecoverable** without the password. Store passwords securely (password manager or backup).
 
-**Q: Can I use YaqatW on Excel or PowerPoint?**
-A: YaqatW is Word-only for now. We are exploring other Office apps for future releases. The focus will be on seamless data integration with other tools, such as accessing coding data directly in Excel for advanced analysis and visualization.
+**Q: Can I use YaqatW in Excel or PowerPoint?**
+A: YaqatW is Word-only for now. We're exploring deeper integration with other Office apps (e.g. reading coding data in Excel) for the future.
 
 **Q: How big can my document be?**
-A: The practical size limit depends on your computer's memory and processing power, but we recommend keeping each Word document under 50 MB for best performance. Very large documents (100+ MB) may cause Word and the add-in to slow down or become unstable, since all highlights, codes, and annotations must be processed in real time. For large projects, split your work into multiple documents, ideally, one document per interview or source. This approach keeps everything fast, reliable, and easy to manage.
+A: Keep each document under ~50 MB for best performance. Very large documents (100+ MB) may slow Word and the add-in, since highlights, codes, and annotations are processed in real time. For large projects, split work into multiple documents — ideally one per interview or source.
 
 **Q: Does YaqatW work offline?**
-A: Yes, all work is local until you sync. If you don't enable cloud sync, data stays in your document on that computer only — no backup to the cloud and no access from other devices. Syncing to cloud requires internet connection. **Important trade-off:** While offline work means your data never leaves the machine, it also means no automatic backup. If your document is accidentally deleted or your computer fails, you lose everything. Consider regular manual backups (USB drive, external hard drive) if you choose to stay offline.
+A: Yes — all work is local until you sync. Use **Prepare for offline use** to cache the app. AI, translation, and cloud sync require internet. **Trade-off:** offline means no automatic backup, so back up your document regularly if you stay offline.
 
 **Q: Can I export my data to other formats?**
-A: Yes. Supported export formats include:
-- **Excel (XLSX)** - Open in Excel for pivot tables and analysis
-- **CSV** - Import to R, Python, SPSS, or other tools
-- **JSON** - For custom data processing
-- **HTML** - For web viewing
-- **Word (DOCX)** - For formatted reports
+A: Yes — **Excel (XLSX)**, **CSV**, **JSON**, **HTML**, and **Word (DOCX)**, plus **PNG/SVG** for word clouds and co-occurrence maps. Each data type (codes, categories, relationships, highlights) can be exported separately.
 
-Each data type (codes, categories, relationships, highlights) can be exported separately.
 **Q: How much does YaqatW cost?**
-A: YaqatW is completely free. There are no subscription fees, no central accounts, and no hidden costs. We believe qualitative research tools should be accessible to all researchers, regardless of institutional resources or budget. While we are exploring models to sustain the project, all current features remain free at no cost. Any significant changes to YaqatW's pricing or availability will be announced with plenty of notice.
+A: YaqatW is completely free — no subscription, no accounts, no hidden costs. (Optional AI/translation providers you configure are billed by those third parties, not by YaqatW.)
 
 **Q: Is there a mobile app?**
-A: No. Office Add-ins (including YaqatW) are not supported on the Word mobile app for iOS® or Android™, due to Microsoft platform limitations. You can use YaqatW on Word for Windows, macOS, and the web (Office 365 in a browser). On tablets, you must use the full desktop or web version of Word—add-ins do not run in the mobile app. If Microsoft adds support for add-ins on mobile in the future, we will announce it.
+A: No. Office Add-ins aren't supported on the Word mobile apps for iOS® or Android™ due to Microsoft platform limitations. Use YaqatW on Word for Windows, macOS, or the web. On tablets, use the full desktop or web version of Word.
 
 **Q: Will YaqatW be open source?**
-A: Yes. YaqatW's source code is currently proprietary as we develop and refine the tool. However, we are committed to releasing YaqatW as open-source software once the project reaches broader adoption, benefiting the research community and enabling collaborative improvements.
+A: YaqatW's source is currently proprietary while we develop it, but we're committed to releasing it as open source once the project reaches broader adoption.
 
 ---
 
 ## Contributors
-**Main Contributors:**
-[frianasoa](https://github.com/frianasoa)
+
+**Main Contributors:** [frianasoa](https://github.com/frianasoa)
 
 ---
 
@@ -1009,3 +843,5 @@ A: Yes. YaqatW's source code is currently proprietary as we develop and refine t
 Thank you for using YaqatW! Your feedback is invaluable. Please share thoughts, issues, and feature requests on [GitHub Issues](https://github.com/yaqalab/yaqatw-support/issues).
 
 Happy coding! 🎓
+</content>
+</invoke>
