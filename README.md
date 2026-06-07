@@ -48,7 +48,9 @@ Core features available across modes:
 
 ### A little background
 
-Yaqat — *Yet Another Qualitative Analysis Tool* — began as a private web application, built and maintained by [frianasoa](https://github.com/frianasoa) and used for qualitative research over many years, with a small group of invited collaborators among its users. The name is a nod to the fact that there are already countless QDA tools out there: the aim was never to reinvent the field, but to solve the specific problems that came up in real research. It was brought to Microsoft Word as an add-in to make it accessible to a wider audience. If it makes your work a little easier, saves you a few hours, or helps you notice something new in your data, it has done its job.
+Yaqat used to be a web application on a private server that I ([F. R. Andriariniaina](https://github.com/frianasoa)) have been using for the past ten years, with very few collaborators. It has also been used by my students for some time. I named it Yet Another Qualitative Analysis Tool because there are already countless qualitative analysis tools out there. Rather than trying to reinvent the field, the goal was to create a tool that solves the specific problems I encountered in my own research.
+
+Recently, I decided to bring Yaqat to Microsoft Word as an Add-in in order to make it accessible to a wider audience. If it happens to make your work a little easier, save you a few hours, or help you discover something new in your data, then it has achieved its purpose.
 
 More documentation is added as the project develops. For more information, visit https://yaqatw.alefa.net/public/about.
 
