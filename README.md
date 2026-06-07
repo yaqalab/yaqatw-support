@@ -48,9 +48,9 @@ Core features available across modes:
 
 ### A little background
 
-Yaqat used to be a web application on a private server that I have been using for the past ten years, with few students and collaborators. I named it Yet Another Qualitative Analysis Tool because there are already countless qualitative analysis tools out there. Rather than trying to reinvent the field, the goal was to create a tool that solves the specific problems I encountered in my own research.
+Yaqat used to be a web application on a private server that I have been developing and maintaining for the past ten years. I have been using it with few students and collaborators over the years. I named it Yet Another Qualitative Analysis Tool because there are already countless qualitative analysis tools out there. Rather than trying to reinvent the field, the goal was to create a tool that solves the specific problems I encountered in my own research.
 
-Recently, I decided to bring Yaqat to Microsoft Word as an Add-in in order to make it accessible to a wider audience. If it happens to make your work a little easier, save you a few hours, or help you discover something new in your data, then it has achieved its purpose.
+Recently, I decided to bring Yaqat to Microsoft Word as an Add-in in order to make it accessible to a wider audience, especially students who do not have the resources to afford expensive QDA applications, without compromising on quality. It is also a very simple way to introduce coding to students without the hurdle of installing additional software such as dedicated QDA tools. If it happens to make your work a little easier, save you a few hours, or help you discover something new in your data, then it has achieved its purpose.
 
 More documentation is added as the project develops. For more information, visit https://yaqatw.alefa.net/public/about.
 
@@ -61,6 +61,7 @@ More documentation is added as the project develops. For more information, visit
 - **Microsoft Office newer than 2019.** Word add-ins are a relatively new mechanism: they do **not** work on versions before 2019, and may not work on some 2019 builds. Install the latest Office available to you (e.g. through a university account). Office 2019 is no longer supported by Microsoft, so upgrading is recommended unless you depend on an older version.
 - **Word for Windows, macOS, or the web.** The add-in also runs in Word on the web, though that path is less thoroughly tested. There is **no mobile support** (a Microsoft platform limitation).
 - **Cloud storage strongly recommended.** Especially on the web version — where local browser data is more vulnerable — enable a cloud provider (Google Drive, OneDrive, Dropbox, Nextcloud, or S3) so your data survives a browser or device failure. Desktop users are encouraged to enable it too. See [Cloud Sync](#cloud-sync).
+- **macOS: cloud storage is *required* for export.** Word add-ins on Mac can't trigger a normal file download, so YaqatW exports by uploading the file to your connected cloud provider (under `<project>/export/`) and opening it in your browser to save. Without a connected provider, export does not work on macOS. Windows and Word on the web download files directly and don't need this. See [Export & Analysis](#export--analysis).
 
 ---
 
@@ -827,6 +828,8 @@ When synced with encryption enabled: text excerpts, translations, comments, and 
 YaqatW exports from Mining footers and the coding tabs in several formats: **Excel (XLSX)**, **CSV**, **JSON**, **HTML**, and **Word (DOCX)**. Word clouds and co-occurrence maps export as **PNG/SVG images**. Many tabs offer **Export** (current view) and **Export All**.
 
 > **Tip:** Export **as HTML** when you just want to preview the result and copy it elsewhere; export **as Word** when you want to keep the file.
+
+> **macOS note:** Unlike Windows and the web (which download exports straight to your machine), macOS can't trigger a file download from within a Word add-in. On macOS YaqatW instead uploads each export to your connected cloud provider under `<project>/export/` and opens it in a browser window so you can **Save As** from there. This means **a cloud provider must be connected** (Settings → Cloud) and a **project name set** before you can export on macOS — otherwise export fails with a prompt to connect one.
 
 ### Export the Code Book
 
