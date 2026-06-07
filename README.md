@@ -7,10 +7,11 @@ Welcome to YaqatW! This guide will help you get started with qualitative coding,
 ## Table of Contents
 
 1. [What is YaqatW?](#what-is-yaqatw)
-2. [Installation](#installation)
-3. [Getting Started](#getting-started)
-4. [Document Types](#document-types)
-5. [Modes & Features](#modes--features)
+2. [Prerequisites](#prerequisites)
+3. [Installation](#installation)
+4. [Getting Started](#getting-started)
+5. [Document Types](#document-types)
+6. [Modes & Features](#modes--features)
    - [Coding Mode](#coding-mode)
    - [Mining Mode](#mining-mode)
    - [Analyzing Mode](#analyzing-mode)
@@ -18,13 +19,13 @@ Welcome to YaqatW! This guide will help you get started with qualitative coding,
    - [Writing Mode](#writing-mode)
    - [Transcribing Mode](#transcribing-mode)
    - [Settings (All Modes)](#settings-all-modes)
-6. [Workflow Guide](#workflow-guide)
-7. [Cloud Sync](#cloud-sync)
-8. [Encryption & Security](#encryption--security)
-9. [Export & Analysis](#export--analysis)
-10. [AI & Translation](#ai--translation)
-11. [Troubleshooting](#troubleshooting)
-12. [FAQ](#faq)
+7. [Workflow Guide](#workflow-guide)
+8. [Cloud Sync](#cloud-sync)
+9. [Encryption & Security](#encryption--security)
+10. [Export & Analysis](#export--analysis)
+11. [AI & Translation](#ai--translation)
+12. [Troubleshooting](#troubleshooting)
+13. [FAQ](#faq)
 
 ---
 
@@ -45,51 +46,79 @@ Core features available across modes:
 - **Export** your analysis to Excel, CSV, JSON, HTML, or Word
 - **Secure** sensitive data with encryption
 
+### A little background
+
+Yaqat — *Yet Another Qualitative Analysis Tool* — began as a private web application used for qualitative research over many years, with a handful of collaborators. The name is a nod to the fact that there are already countless QDA tools out there: the aim was never to reinvent the field, but to solve the specific problems that came up in real research. It was brought to Microsoft Word as an add-in to make it accessible to a wider audience. If it makes your work a little easier, saves you a few hours, or helps you notice something new in your data, it has done its job.
+
+More documentation is added as the project develops. For more information, visit https://yaqatw.alefa.net/public/about.
+
+---
+
+## Prerequisites
+
+- **Microsoft Office newer than 2019.** Word add-ins are a relatively new mechanism: they do **not** work on versions before 2019, and may not work on some 2019 builds. Install the latest Office available to you (e.g. through a university account). Office 2019 is no longer supported by Microsoft, so upgrading is recommended unless you depend on an older version.
+- **Word for Windows, macOS, or the web.** The add-in also runs in Word on the web, though that path is less thoroughly tested. There is **no mobile support** (a Microsoft platform limitation).
+- **Cloud storage strongly recommended.** Especially on the web version — where local browser data is more vulnerable — enable a cloud provider (Google Drive, OneDrive, Dropbox, Nextcloud, or S3) so your data survives a browser or device failure. Desktop users are encouraged to enable it too. See [Cloud Sync](#cloud-sync).
+
 ---
 
 ## Installation
 
-### For Early Access Users
+YaqatW is not yet in the Microsoft Store, so installation is a little more involved than a one-click install. (Publishing to the Store has technical and administrative requirements we aren't ready to meet yet; we plan to as the user base grows.) The current method — *sideloading* a manifest — is standard for add-ins with a small user base.
 
-**Step 1: Download the Manifest File**
-- Request the `manifest.xml` file from the YaqaLab team
+### Step 1: Download the Manifest File
 
-**Step 2: Trust the Add-in in Word**
+Obtain the `manifest.xml` file from the YaqaLab team (or the source you were directed to). Your browser may warn that the file "may harm your computer" — this is the generic warning browsers show for any `.xml`/manifest download. The file is plain text and safe; **download anyway**, and if you wish, inspect it in Notepad or any text editor before installing.
 
-**Windows:**
-For detailed instructions with both text and video walkthrough, see:
-- [Microsoft's guide to sideload Office Add-ins from a network share](https://learn.microsoft.com/en-us/office/dev/add-ins/testing/create-a-network-shared-folder-catalog-for-task-pane-and-content-add-ins)
-- [Video: Sideloading an Office Add-in (starts at 2:34)](https://www.youtube.com/watch?v=XXsAw2UUiQo&t=154s)
+### Step 2: Trust the Add-in in Word
 
-1. Open Microsoft Word
-2. Create a new blank document
-3. Go to **File → Options → Trust Center → Trust Center Settings → Trusted Add-in Catalogs**
-4. Select **Shared Folder Catalog** from the dropdown
-5. Click **Browse** and navigate to the folder containing `manifest.xml`
-6. Click **OK**
-7. Close and reopen Word
+#### Windows
 
-**Web Office:**
-- [Microsoft's guide to sideload Office Add-ins in Web Office](https://learn.microsoft.com/en-us/office/dev/add-ins/testing/sideload-office-add-ins-for-testing?source=recommendations#manually-sideload-an-add-in-to-office-on-the-web)
-- [Video: Sideloading an Office Add-in from the web (starts at 4:04)](https://youtu.be/XXsAw2UUiQo?si=gOqDAYBVIKPa1heG&t=244)
+Reference: [Microsoft's guide to sideload from a network share](https://learn.microsoft.com/en-us/office/dev/add-ins/testing/create-a-network-shared-folder-catalog-for-task-pane-and-content-add-ins) · [Video walkthrough (from 2:34)](https://www.youtube.com/watch?v=XXsAw2UUiQo&t=154s)
 
-1. Go to https://office.com and sign in with your Microsoft 365 account
-2. Open Word Online
-3. Go to **Insert → Get Add-ins → Upload My Add-in**
-4. Click **Browse** and select your `manifest.xml` file
-5. Click **Upload**
-6. YaqatW will now be available in your Word Online session
+**A. Create and share a folder containing `manifest.xml`:**
+1. Create a folder in a stable location (e.g. under *Documents*) and move `manifest.xml` into it
+2. Share the folder with **Everyone**: right-click the folder → **Properties** → **Sharing** tab → **Share…** → add **Everyone** → **Add** → **Share**
+3. Windows shows the shared location, e.g. `\\DESKTOP-NDMDVHB\Users\You\Documents\My add-ins`. Copy it and, if needed, clean it into UNC form (note the backslashes):
+   ```
+   \\DESKTOP-NDMDVHB\Users\You\Documents\My add-ins
+   ```
+4. Verify it works: paste that path into the address bar of a File Explorer window and press Enter — your folder should open
 
-**Mac:**
-1. Open Microsoft Word
-2. Go to **Word → Preferences → Security → Trusted Add-ins**
-3. Click the folder icon and select the folder containing `manifest.xml`
-4. Click **OK**
+**B. Register it as a trusted catalog in Word:**
+1. Open Word with a blank document
+2. **File → Options → Trust Center → Trust Center Settings… → Trusted Add-in Catalogs**
+3. Paste the cleaned `\\…` share path into the box, click **Add catalog**, then **OK** → **OK**
+4. Close and reopen Word
 
-**Step 3: Load the Add-in**
-1. Open or create a Word document
-2. Go to **Insert → Get Add-ins → My Add-ins → Shared Folder**
-3. Click **YaqatW** to load the add-in
+**C. Load the add-in:**
+1. Open a document, go to the **Insert** (or **Home**) tab and find **Add-ins**
+2. **Add-ins → Advanced** (or **My Add-ins**) → **SHARED FOLDER** tab → select **YaqatW** → **Add**
+3. The YaqatW icon appears on the ribbon. Click it; the task pane loads on the right. If the document is empty, some placeholder text is written into it.
+
+#### macOS
+
+Sideloading on macOS is actually simpler than on Windows. Reference: [Microsoft's guide to sideload on Mac](https://learn.microsoft.com/en-us/office/dev/add-ins/testing/sideload-an-office-add-in-on-mac).
+
+1. Download `manifest.xml` as in Step 1
+2. In Finder, press **Cmd+Shift+G** and go to the following path, creating the `wef` folder if it doesn't exist (replace `<username>` with your Mac account name):
+   ```
+   /Users/<username>/Library/Containers/com.microsoft.Word/Data/Documents/wef
+   ```
+3. Copy `manifest.xml` into this `wef` folder
+4. Open Word (or quit and reopen it if already running), then open a document
+5. **Home** tab → **Add-ins** → select **YaqatW** (sideloaded add-ins appear under **My Add-ins** / **Developer Add-ins**). The pane loads on the right.
+
+> **NB:** On some Mac setups you may need to re-add the add-in from the Add-ins menu each time you launch Word. The manifest stays in the `wef` folder, but Word doesn't always keep it pinned to the ribbon between sessions.
+
+#### Word on the web
+
+Reference: [Microsoft's guide for the web](https://learn.microsoft.com/en-us/office/dev/add-ins/testing/sideload-office-add-ins-for-testing?source=recommendations#manually-sideload-an-add-in-to-office-on-the-web) · [Video (from 4:04)](https://youtu.be/XXsAw2UUiQo?si=gOqDAYBVIKPa1heG&t=244)
+
+1. Sign in at https://office.com with your Microsoft 365 account and open Word
+2. **Insert → Add-ins → Upload My Add-in**
+3. **Browse**, select your `manifest.xml`, and **Upload**
+4. YaqatW is now available in your session (enable cloud storage so your data is preserved — see [Prerequisites](#prerequisites))
 
 ### Future: Microsoft AppSource
 
@@ -104,7 +133,9 @@ Once YaqatW is published to the Microsoft Office Store, installation will be one
 
 ### Initial Setup (First Time Only)
 
-When you open YaqatW for the first time, you'll see the Settings tab with required configuration:
+When you first click the YaqatW icon, the task pane opens on the right. A short **disclaimer** appears — read it and click **OK**. If the document was empty, you'll also see some placeholder text written into it. It helps to **widen the pane** at first (drag its left edge); once you're comfortable with the interface you can work in a narrower pane.
+
+You'll then see the Settings tab with the required configuration. Since YaqatW does **not** manage usernames or passwords for you, note anything you set here somewhere secure.
 
 1. **Project Name**
    - Enter a name for your research project (e.g., "interview-study-2024")
@@ -196,8 +227,9 @@ In Coding mode you read your source document and mark passages. Each marked pass
 
 **Apply a Code to Text:**
 1. Select a text excerpt in your Word document
-2. Click (or right-click) the code in the list and choose **Apply**
+2. Right-click the code in the list and choose **Use code** (or **Use code with comment** to attach a comment at the same time)
 3. The selected text is highlighted with the code's color and labeled with the code name
+4. Clicking any coded passage in the document opens its info panel, where you can edit it, add notes/translations, then **save & close**
 
 **Display & organize the code list:**
 - Switch between **Grid**, **List**, and **Compact** views
@@ -217,12 +249,12 @@ In Coding mode you read your source document and mark passages. Each marked pass
 
 **Export your code work:** From the Codes footer you can export the **code book** (your codes and their definitions) and the **coded data** (highlights with their codes, notes, and translations) as Word, Excel, HTML, JSON, or CSV. See [Export & Analysis](#export--analysis).
 
-**Import Comments → Codes:** If your document already has Word review comments, YaqatW can turn them into codes. Choose how each comment maps to a code:
-- First sentence → code name, the rest → description
-- Split on a delimiter (colon, line break, or a custom delimiter)
-- Labeled sections (`[Code]` / `[Description]`)
+**Import Comments → Codes:** If your document already has Word review comments, YaqatW can turn them into codes — each comment becomes a code, applied to the text it was attached to. The **Import comments** button appears inside the **Add/Edit code** dialog, and **only when the document actually contains comments**. Open that dialog, click **Import comments**, and pick how each comment maps to a code:
+- **First sentence → code name, the rest → description** (best when comments are short)
+- **Split on a delimiter** — structure each comment as `code <delimiter> description` using a colon, a line break, or a custom delimiter; text before the delimiter is the code, text after is the description
+- **Labeled sections** — mark parts explicitly: `[Code]` …code… `[Description]` …description…
 
-A live preview shows how many comments will become new codes, be applied, or be skipped before you confirm.
+A live preview shows how many comments will become new codes, be applied, or be skipped before you confirm. (For example, a comment that just says "My interesting note" becomes a code of that name on the commented passage.)
 
 **AI Code Agent (optional):** When an AI provider is configured (see [AI & Translation](#ai--translation)), the Codes tab offers AI-assisted coding **Suggestions**. You guide the AI without writing prompts from scratch:
 - **Reasoning mode** — *Inductive* (build patterns up from the data), *Deductive* (test predictions from existing theory), or *Abductive* (match to existing codes first, allow new ones to emerge)
@@ -301,6 +333,8 @@ Relationship: Cause → Effect
 ```
 
 ![Relationships tab showing connections and instances](./assets/relationships-tab.png)
+
+**Relationships as theme containers:** Thematic analysis usually needs only three levels — **Data → Codes → Themes**. But depending on your coding style you may want a fourth — **Data → Codes → Categories → Themes**. Because a Relationship can hold categories, you can use it as the outer "Themes" container above your categories, giving you that extra level without leaving the add-in.
 
 ---
 
@@ -507,6 +541,8 @@ Writing mode is meant to run in its own **Writing document** (see [Document Type
 
 **Intended for:** producing the transcripts you'll later code — playing back interview audio and typing it into Word with speaker labels and timestamps, helped by keyboard shortcuts, voice enrollment, and automatic speaker diarization.
 
+> **Experimental:** Transcribing mode is still under active development. The other modes are fully usable; expect rough edges here.
+
 The workflow runs across three tabs: **Import** the audio, **Transcribe** it turn by turn, and optionally **Diarize** to detect who spoke when across the whole recording. Lines you insert land in the Word document as one speaker turn per paragraph — exactly the shape [Mining](#mining-mode) expects.
 
 > Like Coding, Transcribing is available only for **Analysis documents**.
@@ -624,10 +660,15 @@ To rebind, click a shortcut cell in the table and press `Ctrl+Alt` + your key (g
 
 **Metadata: Privacy-First Practices**
 
-Click **Edit Metadata** to add structured notes and attributes to your document:
-- Add fields and values (e.g., "Analysis Round": "1")
-- Click the lock icon to encrypt sensitive fields (requires data password)
-- Locked fields are only visible when you provide the correct password
+Metadata holds structured information *about* the document — most often details about the participant — that you can attach to exports. There are two ways to manage it.
+
+**The quick way — a table in the document:**
+1. At the **beginning of the document**, insert a **two-column table**. Make the first row a header: first cell **Metadata**, second cell **Value**.
+2. Add one row per entry (e.g. `Participant | P-001`, `Region | Region A`).
+3. Go to **Settings → Edit Metadata** and click **Refresh** — YaqatW reads the table and saves every row into the metadata database.
+4. Whenever you add or change rows, click **Refresh** again. (It refreshes automatically when the add-in opens, but a manual refresh makes sure.)
+
+**The dialog way — direct editing & encryption:** In the same **Edit Metadata** dialog you can add or edit fields by hand, and click the **lock icon** to encrypt a sensitive field (requires your data password). Locked fields are only visible when you provide the correct password.
 
 **✅ Safe to store in metadata:**
 - Analysis phase or round (e.g., "Coding Round 1")
@@ -782,6 +823,19 @@ When synced with encryption enabled: text excerpts, translations, comments, and 
 ### Export Formats
 
 YaqatW exports from Mining footers and the coding tabs in several formats: **Excel (XLSX)**, **CSV**, **JSON**, **HTML**, and **Word (DOCX)**. Word clouds and co-occurrence maps export as **PNG/SVG images**. Many tabs offer **Export** (current view) and **Export All**.
+
+> **Tip:** Export **as HTML** when you just want to preview the result and copy it elsewhere; export **as Word** when you want to keep the file.
+
+### Export the Code Book
+
+The **code book** is your list of codes and their definitions:
+1. Go to the **Codes** tab → **Export** (bottom) → **Save Code Book** → **Options**
+2. In the options dialog, tick what to include — e.g. **Code**, **Description**, **Color** — then **Close**
+3. **Export → Save Code Book → Save as HTML** (to preview/copy) or **Save as Word** (to keep)
+
+### Export Categories & Relationships
+
+Exporting categories or relationships works the same way, but with richer detail options. Beyond the structure you can include, per coded item: the **selected text**, its **translation**, the **code applied**, the **category** (or relationship), and any of your saved **metadata** fields. Open **Options** to choose exactly which of these columns appear.
 
 ### Export to Excel
 
