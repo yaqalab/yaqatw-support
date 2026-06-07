@@ -151,6 +151,8 @@ Before choosing a mode, YaqatW asks what kind of document this is. Set it in **S
 
 **Note:** You can only switch a document to **Writing** type if it has **no highlights**. This keeps coded source data and written output cleanly separated. The typical setup is one (or several) Analysis documents holding your interviews/sources, plus a separate Writing document for your paper — all under the same project name so they share codes and data.
 
+> 📸 **Screenshot:** [Settings > Document Type selector (Analysis document / Writing document)]
+
 ---
 
 ## Operating Modes
@@ -235,6 +237,10 @@ A live preview shows how many comments will become new codes, be applied, or be 
 - Options: embed/validate against existing codes, include interviewer passages as context only, cap the number of new codes, and output codes in your writing language
 
 Suggested codes are previewed for you to accept, edit, or reject — nothing is applied to your document automatically.
+
+> 📸 **Screenshot:** [Coding mode > Codes > AI Suggestions panel (reasoning mode, analytic stance, research question)]
+
+> 📸 **Screenshot:** [Coding mode > Codes > Import Comments dialog with strategy + preview]
 
 ![Coding tab with code list and apply functionality](./assets/coding-tab.png)
 
@@ -329,6 +335,8 @@ Mining works over the **parsed turns** of your text (speaker turns / paragraphs)
 
 **Named search** is powerful for theory-driven coding: define groups and subgroups of terms in a YAML file, then control deduplication with the **Exclusion** setting — *None* (every match reported), *Exclude turn* (each turn counted at most once), or *Exclude subgroup* (each subgroup captures only turns not already matched).
 
+> 📸 **Screenshot:** [Mining mode > Search > search-mode selector (Exact / Wildcard / Boolean / Proximity / Fuzzy / Regex / Named)]
+
 ![Mining search tab with search filters and results list](./assets/mining-search.png)
 
 #### **Frequency** Tab — Word Frequency Analysis
@@ -376,6 +384,10 @@ Mining works over the **parsed turns** of your text (speaker turns / paragraphs)
 
 ![Word cloud](./assets/mining-word-cloud.png)
 
+> 📸 **Screenshot:** [Mining mode > Stats > dispersion plot (ticks per turn)]
+
+> 📸 **Screenshot:** [Mining mode > Stats > speaker statistics table (turns, vocab size, TTR)]
+
 **Use Case:** Create a word cloud for a presentation, or use speaker stats to compare how much and how diversely each participant spoke. Word clouds and co-occurrence maps can be **saved as figures** and later inserted into a Writing document (see [Writing Mode](#writing-mode)).
 
 ---
@@ -392,6 +404,10 @@ Mining works over the **parsed turns** of your text (speaker turns / paragraphs)
 2. **Drag** items into the analysis zones on the right (e.g. rows vs. columns) to define what you want to compare
 3. **Run** the analysis to see the results — counts, overlaps, and (when an AI provider is configured) an AI-written interpretation of the patterns
 4. Results can be opened in a dialog and exported
+
+> 📸 **Screenshot:** [Analyzing mode > Analysis > data items panel + dragging variables into analysis zones]
+
+> 📸 **Screenshot:** [Analyzing mode > Analysis > result dialog with AI interpretation]
 
 **Use Case:** Compare how a code is distributed across participant groups, see which codes co-occur, or cross-tabulate metadata (e.g. "Region A" vs "Region B") against your categories — without leaving Word.
 
@@ -418,9 +434,15 @@ Mining works over the **parsed turns** of your text (speaker turns / paragraphs)
 
 Artifacts can be **deprecated** (kept with a reason) or **deleted** (marked deleted). Saved artifacts can later be inserted into a Writing document as images with captions.
 
+> 📸 **Screenshot:** [Documenting mode > Artifacts > artifact list]
+
+> 📸 **Screenshot:** [Documenting mode > Artifacts > artifact editor with attachments + interpretation]
+
 #### **Notes** Tab — Analytic Memos
 
 **What it does:** Write and keep analytic notes/memos alongside your project. Notes can be searched and inserted into a Writing document via the Cite tab.
+
+> 📸 **Screenshot:** [Documenting mode > Notes > note editor]
 
 ---
 
@@ -446,6 +468,10 @@ Artifacts can be **deprecated** (kept with a reason) or **deleted** (marked dele
    - **Plain text** or **Rich text**
 
 Quotation formatting (quote characters, the participant/source prefix and suffix, and which metadata field supplies the participant ID) is configurable in **Settings**.
+
+> 📸 **Screenshot:** [Writing mode > Cite > source picker (Highlights / Artifacts / Notes / Tables / Figures)]
+
+> 📸 **Screenshot:** [Writing mode > Cite > insert options (inline/block, linked/unlinked, plain/rich)]
 
 ![Writing mode cite tab with search results and cite button](./assets/writing-cite.png)
 
@@ -482,6 +508,8 @@ Quotation formatting (quote characters, the participant/source prefix and suffix
 
 **Mark a segment & AI transcribe:** Mark a **start** and **end** on the timeline, then **Transcribe** the segment with your configured transcription provider, or **Enroll Speaker** to teach YaqatW that speaker's voice from the segment (used for auto-identification and diarization).
 
+> 📸 **Screenshot:** [Transcribing mode > Transcribe > marked segment with Mark Start/End, Transcribe + Enroll Speaker buttons]
+
 ![Transcribing tab with speaker management](./assets/transcribing-speakers.png)
 
 **Keyboard Shortcuts (all customizable):** Shortcuts use `Ctrl+Alt+Key`.
@@ -517,6 +545,10 @@ To rebind, click a shortcut cell in the table and press `Ctrl+Alt` + your key (g
 2. On the **Diarize** tab, click **Analyze** — YaqatW decodes the audio, extracts voice features, clusters unknown voices, and merges segments into a timeline
 3. Edit the result directly: select a segment to **split** it at the playhead, **merge** it with the next, **delete** it, **assign** it to a speaker, or **rename** speakers
 4. Zoom, undo/redo, and **export** the diarization as JSON
+
+> 📸 **Screenshot:** [Transcribing mode > Diarize > timeline with colored speaker segments]
+
+> 📸 **Screenshot:** [Transcribing mode > Diarize > selected segment editor (split / merge / assign / rename)]
 
 **Engines & remote option:** Choose a speaker-identification engine in Settings — **DIY MFCC** (offline, free) or **Picovoice Eagle** (higher accuracy, requires a free Picovoice AccessKey). For heavier audio, a **Remote** analyze option can offload diarization to a companion app (configure its URL and API key in Settings).
 
