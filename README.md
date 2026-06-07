@@ -10,8 +10,7 @@ Welcome to YaqatW! This guide will help you get started with qualitative coding,
 2. [Installation](#installation)
 3. [Getting Started](#getting-started)
 4. [Document Types](#document-types)
-5. [Operating Modes](#operating-modes)
-6. [Key Features](#key-features)
+5. [Modes & Features](#modes--features)
    - [Coding Mode](#coding-mode)
    - [Mining Mode](#mining-mode)
    - [Analyzing Mode](#analyzing-mode)
@@ -19,13 +18,13 @@ Welcome to YaqatW! This guide will help you get started with qualitative coding,
    - [Writing Mode](#writing-mode)
    - [Transcribing Mode](#transcribing-mode)
    - [Settings (All Modes)](#settings-all-modes)
-7. [Workflow Guide](#workflow-guide)
-8. [Cloud Sync](#cloud-sync)
-9. [Encryption & Security](#encryption--security)
-10. [Export & Analysis](#export--analysis)
-11. [AI & Translation](#ai--translation)
-12. [Troubleshooting](#troubleshooting)
-13. [FAQ](#faq)
+6. [Workflow Guide](#workflow-guide)
+7. [Cloud Sync](#cloud-sync)
+8. [Encryption & Security](#encryption--security)
+9. [Export & Analysis](#export--analysis)
+10. [AI & Translation](#ai--translation)
+11. [Troubleshooting](#troubleshooting)
+12. [FAQ](#faq)
 
 ---
 
@@ -155,47 +154,32 @@ Before choosing a mode, YaqatW asks what kind of document this is. Set it in **S
 
 ---
 
-## Operating Modes
+## Modes & Features
 
-After initial setup, switch between modes from **Settings → yaqatw-mode** (or from the pinned header bar). Your data persists across modes.
+YaqatW is organized into six modes. Switch between them from **Settings → yaqatw-mode** (or the pinned header bar) — your data persists across modes, so a mode is simply a different lens on the same project. Which modes are available depends on the [document type](#document-types).
 
-### **Coding Mode**
-**Best for:** Coding source data, building a code scheme, organizing concepts
+| Mode | Tabs | Intended for |
+|---|---|---|
+| **Coding** | Codes · Categories · Relationships | Coding source text and organizing concepts into categories and relationships |
+| **Mining** | Search · Frequency · Co-occurrence · Stats | Exploring the raw text — search, word frequency, collocation networks, corpus statistics |
+| **Analyzing** | Analysis | Cross-tabulating codes, categories, metadata, and search groups as variables |
+| **Documenting** | Artifacts · Notes | Cataloguing evidence files and writing analytic memos |
+| **Writing** | Cite | Drafting a manuscript with quotes, citations, figures, and tables from your project |
+| **Transcribing** | Import · Transcribe · Diarize | Turning audio recordings into speaker-labelled, time-stamped text |
 
-**Tabs:** Codes · Categories · Relationships · Settings
+*(Every mode also has a **Settings** tab. The table omits it for brevity.)*
 
-### **Mining Mode**
-**Best for:** Exploring and getting to know your raw text — before, during, or after coding
-
-**Tabs:** Search · Frequency · Co-occurrence · Stats · Settings
-
-### **Analyzing Mode**
-**Best for:** Cross-tabulating and comparing your coded data using codes, categories, metadata, and search groups as variables
-
-**Tabs:** Analysis · Settings
-
-### **Documenting Mode**
-**Best for:** Managing evidence files (artifacts) and analytic memos/notes
-
-**Tabs:** Artifacts · Notes · Settings
-
-### **Writing Mode**
-**Best for:** Drafting papers or reports with quotes, citations, figures, and tables drawn from your project
-
-**Tabs:** Cite · Settings
-
-### **Transcribing Mode**
-**Best for:** Converting audio interviews into text with speaker labels and timestamps
-
-**Tabs:** Import · Transcribe · Diarize · Settings
-
-You can switch modes anytime to adapt to your current task.
+The rest of this section documents each mode in depth.
 
 ---
 
-## Key Features
-
 ### Coding Mode
+
+**Intended for:** turning raw source text into coded data — creating codes, applying them to passages, and organizing those codes into categories and relationships.
+
+In Coding mode you read your source document and mark passages. Each marked passage becomes a **highlight**: a colored span in the Word document that carries one or more codes, plus an optional note and translation. Codes, categories, and relationships are **shared across every file in the project**, so a code you create here is available when coding any other document under the same project name — while the highlights themselves belong to each file.
+
+> This mode is available only for **Analysis documents**; it is hidden for Writing documents (which have no highlights).
 
 #### **Codes** Tab — Mark Up Your Text
 
@@ -222,6 +206,16 @@ You can switch modes anytime to adapt to your current task.
 **Edit or Delete:**
 - **Edit** to change name/description/color
 - **Delete** to remove the code definition (highlights stay in the document; deleted codes can be restored from the **Trash**)
+
+**Work with a highlight:** A passage can carry **several codes at once** — apply additional codes to the same selection, or **detach** a code you applied by mistake. Selecting a highlight opens its info panel, where you can see and edit:
+- the **highlighted text**,
+- a **translation** (translate on demand when an AI/translation provider is configured — see [AI & Translation](#ai--translation)),
+- a free-text **note**, and
+- the list of **codes applied**.
+
+**Layers:** Highlights live in **layers**, which let you keep parallel passes of coding separate — for example an original-language layer and a **translation layer**, or a first-pass and a second-pass coding round. You can **create a new layer**, and show or hide layers independently. Hidden layers stay hidden by default; turn on *Offer to reveal hidden layers* in Settings if you want YaqatW to prompt you when you select a highlight that lives in a hidden one.
+
+**Export your code work:** From the Codes footer you can export the **code book** (your codes and their definitions) and the **coded data** (highlights with their codes, notes, and translations) as Word, Excel, HTML, JSON, or CSV. See [Export & Analysis](#export--analysis).
 
 **Import Comments → Codes:** If your document already has Word review comments, YaqatW can turn them into codes. Choose how each comment maps to a code:
 - First sentence → code name, the rest → description
@@ -312,10 +306,16 @@ Relationship: Cause → Effect
 
 ### Mining Mode
 
-Mining works over the **parsed turns** of your text (speaker turns / paragraphs). A **scope** bar at the top of each Mining tab lets you focus the analysis:
+**Intended for:** getting to know the raw text itself — searching it, measuring word frequency, mapping which words travel together, and profiling speakers — before, during, or after coding.
+
+Mining reads your document into **parsed turns**: each paragraph is treated as one speaker turn, and YaqatW detects the speaker label and **role** (interviewer vs. interviewee) from the way turns are written. Everything in Mining operates on these turns, which is why keeping *one speaker turn per paragraph* (see [Transcribing](#transcribing-mode)) makes the analysis cleaner. The current document is indexed automatically; use **Settings → Re-index current document** if results look stale.
+
+A **scope** bar at the top of each Mining tab lets you focus the analysis:
 - **Global** — analyze all indexed files in the project, not just the current document
 - **Files** — narrow to selected files (all files by default)
 - **Speakers** — filter to selected speakers
+
+Every tab has its own **Export / Export All** footer, and results can be filtered by speaker **role** (All / Interviewer / Interviewee).
 
 #### **Search** Tab — Full-Text Exploration
 
@@ -394,28 +394,46 @@ Mining works over the **parsed turns** of your text (speaker turns / paragraphs)
 
 ### Analyzing Mode
 
+**Intended for:** asking structured questions of your coded data — *does this pattern differ by group?* — by treating codes, categories, metadata, and search results as **variables** and combining them, all without exporting to a separate stats tool.
+
 #### **Analysis** Tab — Variable-Based Exploration
 
-**What it does:** Treat your coded data as variables and combine them to explore relationships, much like building a cross-tabulation.
+**What it does:** Lets you build an analysis the way you'd design a simple study: pick what you're measuring, pick what might explain it, and (optionally) pick how to break it down — then run it.
 
-**How it works:**
-1. The left panel lists your available **data items**, grouped by kind:
-   - **Codes**, **Categories**, **Relationships**, **Highlights**, **Metadata** fields, **Co-occurrence** pairs, and named-search **Groups**
-2. **Drag** items into the analysis zones on the right (e.g. rows vs. columns) to define what you want to compare
-3. **Run** the analysis to see the results — counts, overlaps, and (when an AI provider is configured) an AI-written interpretation of the patterns
-4. Results can be opened in a dialog and exported
+**The building blocks.** The left panel lists every **data item** in your project, grouped by kind, each with a colored badge:
 
-> 📸 **Screenshot:** [Analyzing mode > Analysis > data items panel + dragging variables into analysis zones]
+| Badge | Kind | What it contributes |
+|---|---|---|
+| **C** | Code | A single code |
+| **Ca** | Category | A group of codes |
+| **R** | Relationship | A documented code/category connection |
+| **H** | Highlight | An individual coded passage |
+| **M** | Metadata | A document/participant metadata field |
+| **Co** | Co-occurrence | A word-pair from Mining |
+| **G** | Group | A named-search group |
+
+**The three zones.** Drag items from the left into the analysis zones on the right to frame your question:
+- **Dependent** — what you want to measure or explain (the outcome, e.g. a code or category)
+- **Independent** — the factor you think relates to it (e.g. another category, or a co-occurrence)
+- **Group by** — how to split the results into comparable groups (e.g. a metadata field such as region or interview round)
+
+**Run it.** Click **Run** to compute the result — counts and overlaps across the variables you placed, and, when an AI provider is configured, a written **interpretation** of the patterns. Open the result in a dialog and export it. The layout adapts to the pane width (accordion or side-by-side), and your last configuration is remembered.
+
+> 📸 **Screenshot:** [Analyzing mode > Analysis > data items panel + dependent / independent / group-by zones]
 
 > 📸 **Screenshot:** [Analyzing mode > Analysis > result dialog with AI interpretation]
 
-**Use Case:** Compare how a code is distributed across participant groups, see which codes co-occur, or cross-tabulate metadata (e.g. "Region A" vs "Region B") against your categories — without leaving Word.
+**Use Case:** Put a category in *Dependent*, a metadata field like "Region" in *Group by*, and see how that category is distributed across regions — or place two categories in *Dependent* and *Independent* to see how often they overlap.
 
-> Analyzing mode is available for both Analysis and Writing documents, so you can interrogate your data while drafting.
+> Analyzing mode works for both Analysis and Writing documents, so you can interrogate your data while you draft.
 
 ---
 
 ### Documenting Mode
+
+**Intended for:** keeping the evidence and the thinking that surround your text — the photos, recordings, and documents you collected in the field, plus the analytic memos you write as you make sense of them.
+
+Where Coding works on text *inside* the Word document, Documenting manages material *alongside* it. It has two tabs: **Artifacts** (evidence files) and **Notes** (memos). Both are searchable and can be pulled into a Writing document via the [Cite](#writing-mode) tab.
 
 #### **Artifacts** Tab — Manage Evidence Files
 
@@ -432,7 +450,7 @@ Mining works over the **parsed turns** of your text (speaker turns / paragraphs)
 
 > **Cloud required:** Artifact attachments are stored in your cloud provider's project folder. You must configure a cloud backend in Settings before adding artifacts. Without it, attachments may be lost on a browser reset. If the cloud provider is disconnected, existing attachments may be temporarily unreachable until you reconnect.
 
-Artifacts can be **deprecated** (kept with a reason) or **deleted** (marked deleted). Saved artifacts can later be inserted into a Writing document as images with captions.
+**Lifecycle & sync:** Artifact records sync with the rest of your project, while their attachments are uploaded to the project folder on your cloud provider. Artifacts can be **deprecated** (kept on record with a reason) or **deleted** (marked deleted, recoverable). If an attachment can't be found locally or on the cloud — for example after switching devices — YaqatW flags the **missing attachments** so you can choose to keep or prune them. Saved artifacts can later be inserted into a Writing document as images with captions and a source line.
 
 > 📸 **Screenshot:** [Documenting mode > Artifacts > artifact list]
 
@@ -447,6 +465,10 @@ Artifacts can be **deprecated** (kept with a reason) or **deleted** (marked dele
 ---
 
 ### Writing Mode
+
+**Intended for:** drafting the manuscript itself — your paper, report, or chapter — by pulling already-coded evidence out of your project and into the page, correctly attributed, instead of copy-pasting and losing track of sources.
+
+Writing mode is meant to run in its own **Writing document** (see [Document Types](#document-types)), kept under the same project name as your coded sources so it can reach all of their highlights, notes, artifacts, figures, and tables.
 
 #### **Cite** Tab — Search and Insert Quotes, Citations, Figures & Tables
 
@@ -467,7 +489,9 @@ Artifacts can be **deprecated** (kept with a reason) or **deleted** (marked dele
    - **Linked (refreshable)** — stays connected to the source and can be refreshed if the source changes — or **Unlinked (plain paste)**
    - **Plain text** or **Rich text**
 
-Quotation formatting (quote characters, the participant/source prefix and suffix, and which metadata field supplies the participant ID) is configurable in **Settings**.
+**Why "linked" matters:** A **linked (refreshable)** citation stays connected to its source highlight or figure. If you later re-code a passage, fix a translation, or regenerate a word cloud, you can **refresh** the inserted citation instead of finding and replacing it by hand. Choose **unlinked (plain paste)** when you want a one-off snapshot that won't change.
+
+**Attribution:** Quotes are labelled with their source — typically the participant ID drawn from a metadata field. Quotation formatting (the quote characters, the participant/source prefix and suffix, and which metadata field supplies the participant ID) is configurable in **Settings → Appearance & Insertion**, as is how inserted images and tables are captioned, positioned, and aligned.
 
 > 📸 **Screenshot:** [Writing mode > Cite > source picker (Highlights / Artifacts / Notes / Tables / Figures)]
 
@@ -480,6 +504,12 @@ Quotation formatting (quote characters, the participant/source prefix and suffix
 ---
 
 ### Transcribing Mode
+
+**Intended for:** producing the transcripts you'll later code — playing back interview audio and typing it into Word with speaker labels and timestamps, helped by keyboard shortcuts, voice enrollment, and automatic speaker diarization.
+
+The workflow runs across three tabs: **Import** the audio, **Transcribe** it turn by turn, and optionally **Diarize** to detect who spoke when across the whole recording. Lines you insert land in the Word document as one speaker turn per paragraph — exactly the shape [Mining](#mining-mode) expects.
+
+> Like Coding, Transcribing is available only for **Analysis documents**.
 
 #### **Import** Tab — Load Audio Files
 
