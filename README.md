@@ -48,7 +48,7 @@ Core features available across modes:
 
 ### A little background
 
-Yaqat used to be a web application on a private server that [F. R. Andriariniaina](https://github.com/frianasoa) has been using for the past ten years, with very few collaborators. It has also been used by my students for some time. I named it Yet Another Qualitative Analysis Tool because there are already countless qualitative analysis tools out there. Rather than trying to reinvent the field, the goal was to create a tool that solves the specific problems I encountered in my own research.
+Yaqat used to be a web application on a private server that I have been using for the past ten years, with few students and collaborators. I named it Yet Another Qualitative Analysis Tool because there are already countless qualitative analysis tools out there. Rather than trying to reinvent the field, the goal was to create a tool that solves the specific problems I encountered in my own research.
 
 Recently, I decided to bring Yaqat to Microsoft Word as an Add-in in order to make it accessible to a wider audience. If it happens to make your work a little easier, save you a few hours, or help you discover something new in your data, then it has achieved its purpose.
 
@@ -70,7 +70,7 @@ YaqatW is not yet in the Microsoft Store, so installation is a little more invol
 
 ### Step 1: Download the Manifest File
 
-Obtain the `manifest.xml` file from the YaqaLab team (or the source you were directed to). Your browser may warn that the file "may harm your computer" — this is the generic warning browsers show for any `.xml`/manifest download. The file is plain text and safe; **download anyway**, and if you wish, inspect it in Notepad or any text editor before installing.
+Obtain the `manifest.xml` file from the YaqaLab team (or the source you were directed to). Your browser may warn that the file "may harm your computer" — this is the generic warning browsers show for any `.xml`/manifest download from google drive. The file is plain text and safe; **download anyway**, and if you wish, inspect it in Notepad or any text editor before installing.
 
 ### Step 2: Trust the Add-in in Word
 
