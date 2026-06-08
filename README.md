@@ -616,6 +616,8 @@ Export the visible view to PNG, or use **Export full map** for the complete netw
 
 ![📸 Analyzing mode > Analysis — result dialog showing counts and overlaps](./assets/analysis-result.png)
 
+**Hierarchy levels.** Because categories (and relationships) form a tree, each one appears in the data-items panel once per depth level, suffixed with a bracketed index: **Category [0]**, **Category [1]**, **Category [2]**, and so on. **[0] is the root**, the top theme an item rolls up to, and the index grows as you descend toward the leaves. Drop **Category [0]** into a zone to analyze at the broadest level, or a deeper one like **Category [2]** to break the same data down more finely. A flat project (no nesting) yields just **Category [0]**, equal to the category's own name.
+
 **A concrete example:** put a category in *Dependent*, drop a metadata field like "Region" into *Group by*, and you will see how that category is distributed across regions. Or place two categories in *Dependent* and *Independent* to see how often they overlap in the data.
 
 > Analyzing mode works for both Analysis and Writing documents, so you can interrogate your data even while you are drafting your paper.
