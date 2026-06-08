@@ -430,6 +430,8 @@ For longer or reusable exclusion lists, the Frequency and Co-occurrence tabs als
 
 ![📸 Mining mode > Frequency > Settings > Filter — the Excluded words field with the Filters dropdown and filter-file actions](./assets/mining-filter-files.png)
 
+
+
 **A shared layout.** The four analysis tabs — Search, Frequency, Co-occurrence, and Stats — all follow the same pattern. The main area shows your results, and a **Settings** button at the top opens a dialog of sub-tabs holding that tab's controls; the results stay visible behind it, so a change previews immediately. Two things you will meet in nearly every Settings dialog:
 
 - **Data (scope).** The **Data** sub-tab is where you decide how wide to cast your net: **Global** (analyze every indexed file in the project, not just the document in front of you), specific **Files** (all of them by default), or specific **Speakers**.
