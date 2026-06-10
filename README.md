@@ -2,7 +2,13 @@
 
 **Yet Another Qualitative Analysis Tool for Word**
 
-Welcome to YaqatW. This guide walks you through qualitative coding, annotation, and thematic analysis inside Microsoft Word, slowly and from the beginning. You do not need to be technical to follow it. Where something is fiddly (installation, mostly), I say so and take extra time over it.
+> 🌐 日本語版はこちら → [README-JA.md](README-JA.md) *(AI-translated — when in doubt, refer to this English version.)*
+
+Welcome to YaqatW. This guide walks you through qualitative coding, annotation, and thematic analysis inside Microsoft Word, slowly and from the beginning. You do not need to be technical to follow it.
+
+This repository is intended for users of YaqatW and focuses on installation, setup, and practical usage. It is not developer documentation and does not contain the project's source code.
+
+Some parts of the process, especially installation, can be a little fiddly. When they are, the guide takes extra time to explain them clearly.
 
 ## Table of Contents
 
