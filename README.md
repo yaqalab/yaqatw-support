@@ -43,7 +43,7 @@ YaqatW is a Microsoft Word add-in for people who do qualitative analysis: resear
 The add-in is organized into six **modes**. A mode is not a separate file or a separate project; it is simply a different lens on the same work. You switch modes depending on what stage of the analysis you are in, and your data stays put as you switch. The six modes are:
 
 - **Coding Mode.** Read your source text and mark passages: create your own codes, apply them to selections, and organize those codes into categories and relationships. Optional AI assistance can suggest codes for you.
-- **Mining Mode.** Get to know the raw text before, during, or after coding: search it, count word frequencies, map which words travel together, and look at per-speaker statistics.
+- **Mining Mode.** Get to know the raw text before, during, or after coding: search it, count word frequencies, map which words travel together, look at per-speaker statistics, and gauge its emotional tone.
 - **Analyzing Mode.** Ask structured questions of your coded data by treating codes, categories, metadata, and search groups as variables you can combine and compare.
 - **Documenting Mode.** Keep the material that surrounds your text: the photos, recordings, and documents you collected, plus the analytic notes you write as you think.
 - **Writing Mode.** Draft your manuscript and pull already-coded quotes, citations, figures, and tables directly into the page, correctly attributed.
@@ -236,7 +236,7 @@ Here is the whole map at a glance:
 | Mode | Tabs | What it is for |
 |---|---|---|
 | **Coding** | Codes · Categories · Relationships | Coding source text, then organizing those codes into categories and relationships |
-| **Mining** | Search · Frequency · Co-occurrence · Stats | Exploring the raw text: searching, word frequency, collocation networks, corpus statistics |
+| **Mining** | Search · Frequency · Co-occurrence · Stats · Sentiment | Exploring the raw text: searching, word frequency, collocation networks, corpus statistics, and gauging emotional tone |
 | **Analyzing** | Analysis | Cross-tabulating codes, categories, metadata, and search groups as variables |
 | **Documenting** | Artifacts · Notes | Cataloguing evidence files and writing analytic memos |
 | **Writing** | Cite | Drafting a manuscript with quotes, citations, figures, and tables drawn from your project |
@@ -368,6 +368,8 @@ Categories can be nested. You may choose to have a certain categories as Researc
 
 **Why bother:** After coding a document you may have twenty or more codes, which is a lot to reason about. Grouping them by theme (Behaviors, Attitudes, Outcomes, and so on) gives you a smaller number of larger ideas to analyze and report against. Grouping them further may allow you a higher level of abstraction.
 
+**AI assistance for categorizing (optional):** when an AI provider is configured (see [AI & Translation](#ai--translation)), an **agent** can propose a category structure built from your **existing codes**, much as the Code Agent proposes codes. You steer it the same way: pick a **reasoning mode** (Inductive, Deductive, or Abductive), give a **research question** and a free-text **prompt**, cap how many categories it may create, and optionally have it validate its suggestions against the categories you already have. You can also ask for a **multi-level abstraction ladder** — for example, rolling themes up into a few aggregate dimensions — rather than a single flat level. Each suggestion appears as a card you **accept or reject**; nothing is applied to your project until you accept it.
+
 #### The **Relationships** Tab: Document Connections Between Concepts
 
 **What it does:** records *how* concepts connect (cause and effect, before and after, part and whole) rather than only what concepts exist.
@@ -438,7 +440,7 @@ For longer or reusable exclusion lists, the Frequency and Co-occurrence tabs als
 
 
 
-**A shared layout.** The four analysis tabs — Search, Frequency, Co-occurrence, and Stats — all follow the same pattern. The main area shows your results, and a **Settings** button at the top opens a dialog of sub-tabs holding that tab's controls; the results stay visible behind it, so a change previews immediately. Two things you will meet in nearly every Settings dialog:
+**A shared layout.** The five analysis tabs — Search, Frequency, Co-occurrence, Stats, and Sentiment — all follow the same pattern. The main area shows your results, and a **Settings** button at the top opens a dialog of sub-tabs holding that tab's controls; the results stay visible behind it, so a change previews immediately. Two things you will meet in nearly every Settings dialog:
 
 - **Data (scope).** The **Data** sub-tab is where you decide how wide to cast your net: **Global** (analyze every indexed file in the project, not just the document in front of you), specific **Files** (all of them by default), or specific **Speakers**.
 - **Role.** Most tabs let you restrict the analysis to **All / Interviewer / Interviewee** turns (under the Analysis sub-tab, or as a built-in filter).
@@ -582,13 +584,32 @@ Export the visible view to PNG, or use **Export full map** for the complete netw
 
 - **Dispersion.** Type the words you want to track, then **Plot**: you get a tick mark on every turn where each word appears. This shows you *where* in the data a word is used — clustered in one section, or spread evenly throughout. When several files are selected, turn on **Split by file** (Settings → Data) so each interview gets its own timeline rather than being mixed onto one misleading axis.
 - **Length.** A histogram of turn lengths, bucketed in ten-token bands, so you can see whether people gave short answers or long ones. By default it counts interviewee turns only; **Include interviewer** (Settings) adds the interviewer's turns.
-- **Speakers.** A table with, per speaker: number of turns, average turn length, vocabulary size, and Type-Token Ratio (a standard measure of lexical diversity).
+- **Speakers.** A table with, per speaker: number of turns, average turn length, vocabulary size, and Type-Token Ratio (a standard measure of lexical diversity). Once you have run the [Sentiment](#the-sentiment-tab-emotional-tone) tab, this table gains an extra column showing each speaker's average sentiment.
 
 ![📸 Mining mode > Stats > Dispersion — a tick mark on every turn where each tracked word appears](./assets/mining-dispersion.png)
 
 ![📸 Mining mode > Stats > Speakers — per-speaker table of turns, average length, vocabulary size, and TTR](./assets/mining-speaker-stats.png)
 
 **Why it helps:** the dispersion and length views tell you how your material is shaped, and the speaker statistics let you compare how much, and how diversely, each participant spoke. The word cloud (in the Frequency tab) and co-occurrence maps can be **saved as figures** and later inserted into a Writing document (see [Writing Mode](#writing-mode)), so the picture you make while exploring can go straight into your paper.
+
+#### The **Sentiment** Tab: Emotional Tone
+
+**What it does:** scores the emotional tone of each turn — positive, neutral, or negative — so you can see how feeling rises and falls across an interview and compare it between speakers or groups.
+
+**Two engines** (Settings → Analysis):
+
+- **Lexicon (offline).** Transparent word-list scoring: each turn's words are looked up in a sentiment lexicon and summed. It runs fully offline, is multilingual, and you can read off exactly which words drove a score. Built-in lexicons ship for **Malagasy, English, French, and Japanese**, and you can extend them with your own **lexicon files** (the Lexicon sub-tab). Two dials tune it: the **Neutral band** (turns whose polarity falls below it are labelled Neutral) and the **Negation window** (how many following words a negator or intensifier — *not*, *very* — affects).
+- **ML model (downloads once).** A neural model run in the browser through transformers.js. It reads context better than the lexicon, but downloads a model on first use (the default is `Xenova/bert-base-multilingual-uncased-sentiment`; you may type any Hugging Face model id). It is cached afterwards, so the download happens only once.
+
+Because sentiment only scores the words it recognizes, the stopword/excluded-words and translation settings of the other tabs do not apply here.
+
+**Scope and breakdown.** Restrict the analysis to **All / Interviewer / Interviewee** turns, and **Split by** a metadata field (Settings → Data) to compare sentiment across cohorts, sites, or any group of participants.
+
+**Views.** A strip at the top switches between several presentations of the same scores: a **Summary**, a **Dashboard**, a **Breakdown** table, a **Stacked bar**, a **Word cloud** of the words driving sentiment, an **Arc** that traces tone across the timeline, and a **Turns** list.
+
+**Where the results go.** Per-speaker averages feed the [Stats → Speakers](#the-stats-tab-corpus-statistics--visualizations) table; the charts and the breakdown table can be **saved as figures and tables** for a Writing document; and the per-turn scores become a **Sentiment (Se)** variable you can drop into [Analyzing mode](#analyzing-mode).
+
+![📸 Mining mode > Sentiment — the Arc view tracing positive/neutral/negative tone across the interview timeline](./assets/mining-sentiment.png)
 
 ---
 
@@ -610,7 +631,11 @@ Export the visible view to PNG, or use **Export full map** for the complete netw
 | **H** | Highlight | An individual coded passage |
 | **M** | Metadata | A document or participant metadata field |
 | **Co** | Co-occurrence | A word-pair from Mining |
+| **CC** | Code co-occurrence | A pair of codes or categories that co-occur in the data |
 | **G** | Group | A named-search group |
+| **Se** | Sentiment | Per-turn sentiment scores from the Mining [Sentiment](#the-sentiment-tab-emotional-tone) tab |
+
+The panel arranges these into collapsible sections — **Qualitative** (codes, categories, relationships, highlights), **Collocation**, **Code co-occurrence**, **Named Search**, **Metadata**, and **Sentiment** — so you can find the kind you need quickly.
 
 **The three zones.** You drag items from the left panel into one of three zones on the right to frame your question:
 
@@ -663,6 +688,19 @@ The distinction from Coding is worth drawing clearly. Coding works on text *insi
 #### The **Notes** Tab: Analytic Memos
 
 **What it does:** lets you write and keep analytic notes and memos alongside your project. Like artifacts, notes can be searched and inserted into a Writing document through the Cite tab, so the thought you have while coding does not get lost before you write it up.
+
+**Each note records:**
+
+- **Title.** A short label for the memo.
+- **Type.** A free-form category for the note, with built-in suggestions — *memo*, *methodological*, *reflexive*, *todo* — or type your own.
+- **Tags.** Free-form keywords for filtering later.
+- **Pin.** Keep an important note at the top of the list.
+- **Linked codes.** Associate the note with one or more codes, so a memo about "Leadership" can be found alongside that code.
+- **Content.** The body of the note, written in **Markdown**, with an editor/preview toggle so you can see the formatted result.
+
+**Drafting with AI (optional):** when an AI provider is configured (see [AI & Translation](#ai--translation)), **Generate** can draft the note's content for you. You choose what context to hand the model — any of the note's own fields, and optionally the document (its turns, filtered by speaker role), your codes, and your categories — so the draft is grounded in the project rather than written from nothing.
+
+**Exporting a note:** a single note can be exported on its own as **Word, HTML, Markdown, or plain text (TXT)**.
 
 ![📸 Documenting mode > Notes — the note editor](./assets/documenting-note-editor.png)
 
@@ -763,7 +801,7 @@ The work runs across three tabs: you **Import** the audio, **Transcribe** it tur
 | Slow Down / Normal / Speed Up | [ / \\ / ] |
 | Insert Timestamp | Enter |
 | Switch Speaker | T |
-| Mark Start / Mark End | (set your own) |
+| Mark Start / Mark End | M / N |
 
 To rebind a shortcut, click its cell in the table and press `Ctrl+Alt` plus your chosen key (green means saved, red means invalid, and × clears it).
 
